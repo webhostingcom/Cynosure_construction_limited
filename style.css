@@ -203,17 +203,22 @@ img {
 @media (max-width: 768px) {
 
     .hero {
-        margin: 12px 12px 0;
+        width: calc(100% - 28px);
+        margin: 18px 14px 0;
         height: calc(100vh - 120px);
         min-height: 580px;
-        border-radius: 22px;
+        border-radius: 28px;
+        overflow: hidden;
     }
 
     .hero-background,
     .hero-overlay {
-        border-radius: 22px;
+        border-radius: 28px;
     }
 
+    .hero-inner {
+        padding: 0 28px;
+    }
 }
 
 .hero {
