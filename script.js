@@ -1,24 +1,107 @@
 /* =====================================================
+   CYNOSURE CONSTRUCTION
+   MAIN JAVASCRIPT
+===================================================== */
+
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+window.addEventListener("load", () => {
+
+    const loadingScreen =
+        document.getElementById("loadingScreen");
+
+    if (!loadingScreen) return;
+
+    setTimeout(() => {
+        loadingScreen.classList.add("loaded");
+    }, 1400);
+
+});
+
+
+/* =====================================================
    MOBILE MENU
 ===================================================== */
 
-const mobileToggle = document.getElementById("mobileToggle");
-const mainNav = document.getElementById("mainNav");
+const mobileToggle =
+    document.getElementById("mobileToggle");
+
+const mainNav =
+    document.getElementById("mainNav");
 
 if (mobileToggle && mainNav) {
+
     mobileToggle.addEventListener("click", () => {
+
         document.body.classList.toggle("menu-open");
+
         mainNav.classList.toggle("active");
+
         mobileToggle.classList.toggle("active");
+
+
+        const isOpen =
+            mainNav.classList.contains("active");
+
+        mobileToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
     });
 
+
     mainNav.querySelectorAll("a").forEach(link => {
+
         link.addEventListener("click", () => {
-            document.body.classList.remove("menu-open");
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
             mainNav.classList.remove("active");
+
             mobileToggle.classList.remove("active");
+
+
+            mobileToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
         });
+
     });
+
+}
+
+
+/* =====================================================
+   HERO VIDEO
+===================================================== */
+
+const heroVideo =
+    document.querySelector(".hero-video");
+
+if (heroVideo) {
+
+    heroVideo.muted = true;
+
+    heroVideo.setAttribute("playsinline", "");
+
+    heroVideo.play().catch(() => {
+
+        /*
+         * Some mobile browsers block autoplay.
+         * The video remains available and can
+         * start when the browser allows it.
+         */
+
+    });
+
 }
 
 
@@ -26,206 +109,379 @@ if (mobileToggle && mainNav) {
    STAT COUNTERS
 ===================================================== */
 
-const counters = document.querySelectorAll(".counter");
+const counters =
+    document.querySelectorAll(".stat-number");
 
-const startCounter = counter => {
 
-    const target = Number(counter.dataset.target);
+function startCounter(counter) {
 
-    let current = 0;
+    const target =
+        Number(counter.dataset.target);
+
+    if (isNaN(target)) return;
 
     const duration = 1800;
-    const startTime = performance.now();
 
-    function updateCounter(time) {
+    const startTime =
+        performance.now();
 
-        const progress = Math.min(
-            (time - startTime) / duration,
-            1
-        );
 
-        const easedProgress =
-            1 - Math.pow(1 - progress, 3);
+    function updateCounter(currentTime) {
 
-        current = Math.floor(
-            easedProgress * target
-        );
+        const progress =
+            Math.min(
+                (currentTime - startTime) /
+                duration,
+                1
+            );
 
-        counter.textContent = current;
+
+        /*
+         * Smooth ease-out animation
+         */
+
+        const eased =
+            1 - Math.pow(
+                1 - progress,
+                3
+            );
+
+
+        const value =
+            Math.floor(
+                eased * target
+            );
+
+
+        counter.textContent = value;
+
 
         if (progress < 1) {
-            requestAnimationFrame(updateCounter);
+
+            requestAnimationFrame(
+                updateCounter
+            );
+
         } else {
+
             counter.textContent = target;
+
         }
+
     }
 
-    requestAnimationFrame(updateCounter);
-};
 
-
-const counterObserver = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                startCounter(entry.target);
-
-                counterObserver.unobserve(
-                    entry.target
-                );
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.5
-    }
-);
-
-
-counters.forEach(counter => {
-    counterObserver.observe(counter);
-});
-
-
-
-/* =====================================================
-   GENERIC HORIZONTAL DRAG / TOUCH SCROLL
-===================================================== */
-
-function makeDraggable(selector) {
-
-    const slider = document.querySelector(selector);
-
-    if (!slider) return;
-
-    let isDown = false;
-    let startX = 0;
-    let startScroll = 0;
-
-    slider.addEventListener(
-        "pointerdown",
-        event => {
-
-            isDown = true;
-
-            slider.setPointerCapture(event.pointerId);
-
-            startX = event.clientX;
-            startScroll = slider.scrollLeft;
-
-            slider.classList.add("dragging");
-
-        }
-    );
-
-
-    slider.addEventListener(
-        "pointermove",
-        event => {
-
-            if (!isDown) return;
-
-            const distance =
-                event.clientX - startX;
-
-            slider.scrollLeft =
-                startScroll - distance;
-
-        }
-    );
-
-
-    const stopDragging = () => {
-
-        isDown = false;
-
-        slider.classList.remove("dragging");
-
-    };
-
-
-    slider.addEventListener(
-        "pointerup",
-        stopDragging
-    );
-
-    slider.addEventListener(
-        "pointercancel",
-        stopDragging
-    );
-
-    slider.addEventListener(
-        "pointerleave",
-        stopDragging
+    requestAnimationFrame(
+        updateCounter
     );
 
 }
 
 
-//* AUTO-SCROLLING CAROUSELS ===================================================== //*
+/* COUNTER OBSERVER */
 
-function autoScrollSlider(selector, speed = 0.35) {
+if (counters.length) {
 
-    const slider = document.querySelector(selector);
+    const counterObserver =
+        new IntersectionObserver(
+            entries => {
 
-    if (!slider) return;
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        startCounter(
+                            entry.target
+                        );
+
+                        counterObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.45
+            }
+        );
+
+
+    counters.forEach(counter => {
+
+        counterObserver.observe(counter);
+
+    });
+
+}
+
+
+/* =====================================================
+   AUTOMATIC HORIZONTAL CARDS
+===================================================== */
+
+function autoMoveCards(selector, speed) {
+
+    const wrapper =
+        document.querySelector(selector);
+
+    if (!wrapper) return;
+
+
+    let animationId;
+
 
     function move() {
 
-        slider.scrollLeft += speed;
+        /*
+         * Move the cards automatically.
+         */
+
+        wrapper.scrollLeft += speed;
+
+
+        /*
+         * When we reach the end,
+         * start again from the beginning.
+         */
 
         if (
-            slider.scrollLeft + slider.clientWidth >=
-            slider.scrollWidth - 2
+            wrapper.scrollLeft +
+            wrapper.clientWidth >=
+            wrapper.scrollWidth - 2
         ) {
-            slider.scrollLeft = 0;
+
+            wrapper.scrollLeft = 0;
+
         }
 
-        requestAnimationFrame(move);
+
+        animationId =
+            requestAnimationFrame(move);
+
     }
 
-    requestAnimationFrame(move);
+
+    animationId =
+        requestAnimationFrame(move);
+
+
+    /*
+     * Pause automatic movement while
+     * the user is touching the card area.
+     */
+
+    wrapper.addEventListener(
+        "pointerdown",
+        () => {
+
+            cancelAnimationFrame(
+                animationId
+            );
+
+        }
+    );
+
+
+    wrapper.addEventListener(
+        "pointerup",
+        () => {
+
+            animationId =
+                requestAnimationFrame(move);
+
+        }
+    );
+
+
+    wrapper.addEventListener(
+        "pointercancel",
+        () => {
+
+            animationId =
+                requestAnimationFrame(move);
+
+        }
+    );
+
 }
-   
+
+
+/*
+ * SERVICES
+ */
+
+autoMoveCards(
+    ".services-section .horizontal-wrapper",
+    0.28
+);
+
+
+/*
+ * PROCESS
+ */
+
+autoMoveCards(
+    ".process-section .horizontal-wrapper",
+    0.28
+);
+
+
+/*
+ * PROJECTS
+ */
+
+autoMoveCards(
+    ".projects-section .horizontal-wrapper",
+    0.24
+);
+
+
+/*
+ * TESTIMONIALS
+ */
+
+autoMoveCards(
+    ".testimonials-section .horizontal-wrapper",
+    0.24
+);
+
+
 /* =====================================================
-   START AUTO SLIDERS
+   GALLERY
 ===================================================== */
 
-autoScrollSlider(
-    ".brands-section",
-    0.45
-);
+const galleryImages = [
 
-autoScrollSlider(
-    ".services-slider",
-    0.35
-);
+    "assets/gallery-1.jpg",
+    "assets/gallery-2.jpg",
+    "assets/gallery-3.jpg"
 
-autoScrollSlider(
-    ".delivery-track-wrapper",
-    0.35
-);
+];
 
-autoScrollSlider(
-    ".projects-track-wrapper",
-    0.3
-);
 
-autoScrollSlider(
-    ".reviews-track-wrapper",
-    0.3
-);
+let currentGallery =
+    0;
 
+
+const galleryImage =
+    document.getElementById(
+        "galleryImage"
+    );
+
+
+const galleryCounter =
+    document.getElementById(
+        "galleryCounter"
+    );
+
+
+const galleryPrev =
+    document.getElementById(
+        "galleryPrev"
+    );
+
+
+const galleryNext =
+    document.getElementById(
+        "galleryNext"
+    );
+
+
+function showGalleryImage(index) {
+
+    if (!galleryImage) return;
+
+
+    /*
+     * Keep the number between 0 and 2.
+     */
+
+    if (index < 0) {
+
+        currentGallery =
+            galleryImages.length - 1;
+
+    } else if (
+        index >= galleryImages.length
+    ) {
+
+        currentGallery = 0;
+
+    } else {
+
+        currentGallery = index;
+
+    }
+
+
+    galleryImage.src =
+        galleryImages[currentGallery];
+
+
+    if (galleryCounter) {
+
+        galleryCounter.textContent =
+            `${currentGallery + 1} / ${galleryImages.length}`;
+
+    }
+
+}
+
+
+/*
+ * PREVIOUS
+ */
+
+if (galleryPrev) {
+
+    galleryPrev.addEventListener(
+        "click",
+        () => {
+
+            showGalleryImage(
+                currentGallery - 1
+            );
+
+        }
+    );
+
+}
+
+
+/*
+ * NEXT
+ */
+
+if (galleryNext) {
+
+    galleryNext.addEventListener(
+        "click",
+        () => {
+
+            showGalleryImage(
+                currentGallery + 1
+            );
+
+        }
+    );
+
+}
+
+
+/*
+ * Start with gallery photo 1.
+ */
+
+showGalleryImage(0);
 
 
 /* =====================================================
-   CONSULTATION FORM
+   ENQUIRY FORM
 ===================================================== */
 
 const consultationForm =
@@ -234,13 +490,25 @@ const consultationForm =
     );
 
 
+const enquiryMessage =
+    document.getElementById(
+        "formSuccess"
+    );
+
+
 if (consultationForm) {
 
     consultationForm.addEventListener(
         "submit",
-        event => {
+        async event => {
 
             event.preventDefault();
+
+
+            const submitButton =
+                consultationForm.querySelector(
+                    ".submit-button"
+                );
 
 
             const formData =
@@ -249,58 +517,127 @@ if (consultationForm) {
                 );
 
 
-            const name =
-                formData.get("name");
+            /*
+             * Disable button while sending.
+             */
 
-            const phone =
-                formData.get("phone");
+            if (submitButton) {
 
-            const email =
-                formData.get("email");
+                submitButton.disabled =
+                    true;
 
-            const project =
-                formData.get("project");
+                submitButton.textContent =
+                    "SENDING...";
 
-            const message =
-                formData.get("message");
-
-
-            const subject =
-                encodeURIComponent(
-                    "New Cynosure Construction Consultation"
-                );
-
-
-            const body =
-                encodeURIComponent(
-`New Consultation Request
-
-Name: ${name}
-
-Phone: ${phone}
-
-Email: ${email}
-
-Project Type: ${project}
-
-Project Details:
-${message}`
-                );
+            }
 
 
             /*
-             * Opens the user's email client.
-             * The message is already prepared.
+             * IMPORTANT:
+             *
+             * This sends the enquiry to the
+             * form service instead of opening
+             * the visitor's Gmail application.
+             *
+             * Replace YOUR_FORM_ID with your
+             * actual Formspree form ID.
              */
 
-            window.location.href =
-                `mailto:info@cynosureconstruction.com?subject=${subject}&body=${body}`;
+            try {
+
+                const response =
+                    await fetch(
+                        "https://formspree.io/f/YOUR_FORM_ID",
+                        {
+                            method: "POST",
+
+                            body: formData,
+
+                            headers: {
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+
+                if (response.ok) {
+
+                    consultationForm.reset();
+
+
+                    if (enquiryMessage) {
+
+                        enquiryMessage.textContent =
+                            "Thank you. Your enquiry has been sent successfully.";
+
+                        enquiryMessage.classList.add(
+                            "show"
+                        );
+
+                    }
+
+
+                    if (submitButton) {
+
+                        submitButton.textContent =
+                            "ENQUIRY SENT ✓";
+
+                    }
+
+
+                } else {
+
+                    throw new Error(
+                        "Unable to send enquiry."
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                if (enquiryMessage) {
+
+                    enquiryMessage.textContent =
+                        "Something went wrong. Please try again.";
+
+                    enquiryMessage.classList.add(
+                        "show"
+                    );
+
+                }
+
+
+                if (submitButton) {
+
+                    submitButton.textContent =
+                        "SEND ENQUIRY";
+
+                }
+
+            }
+
+
+            /*
+             * Re-enable button.
+             */
+
+            setTimeout(() => {
+
+                if (submitButton) {
+
+                    submitButton.disabled =
+                        false;
+
+                }
+
+            }, 3000);
 
         }
     );
 
 }
-
 
 
 /* =====================================================
@@ -319,7 +656,9 @@ if (backToTop) {
         "scroll",
         () => {
 
-            if (window.scrollY > 600) {
+            if (
+                window.scrollY > 500
+            ) {
 
                 backToTop.classList.add(
                     "show"
@@ -336,8 +675,20 @@ if (backToTop) {
         }
     );
 
-}
 
+    backToTop.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+}
 
 
 /* =====================================================
@@ -356,7 +707,9 @@ if (header) {
         "scroll",
         () => {
 
-            if (window.scrollY > 50) {
+            if (
+                window.scrollY > 40
+            ) {
 
                 header.classList.add(
                     "scrolled"
@@ -376,7 +729,6 @@ if (header) {
 }
 
 
-
 /* =====================================================
    SMOOTH INTERNAL LINKS
 ===================================================== */
@@ -392,13 +744,18 @@ document
             event => {
 
                 const targetId =
-                    link.getAttribute("href");
+                    link.getAttribute(
+                        "href"
+                    );
+
 
                 if (
                     !targetId ||
                     targetId === "#"
                 ) {
+
                     return;
+
                 }
 
 
@@ -412,8 +769,10 @@ document
 
                     event.preventDefault();
 
+
                     target.scrollIntoView({
-                        behavior: "smooth"
+                        behavior: "smooth",
+                        block: "start"
                     });
 
                 }
@@ -423,19 +782,7 @@ document
 
     });
 
+
 /* =====================================================
-   LOADING SCREEN
+   END
 ===================================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const loadingScreen =
-        document.getElementById("loadingScreen");
-
-    if (!loadingScreen) return;
-
-    setTimeout(() => {
-        loadingScreen.classList.add("loaded");
-    }, 1000);
-
-});
