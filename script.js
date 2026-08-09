@@ -219,12 +219,12 @@ if (counters.length) {
 
 }
 
-
 /* =====================================================
    AUTOMATIC HORIZONTAL CARDS
+   SMOOTH • CONTINUOUS • NO MANUAL SWIPING
 ===================================================== */
 
-function autoMoveCards(selector, speed) {
+function autoMoveCards(selector, speed = 0.35) {
 
     const wrapper =
         document.querySelector(selector);
@@ -232,124 +232,91 @@ function autoMoveCards(selector, speed) {
     if (!wrapper) return;
 
 
-    let animationId;
+    let position = 0;
+    let lastTime = performance.now();
 
 
-    function move() {
+    function animate(currentTime) {
+
+        const delta =
+            currentTime - lastTime;
+
+        lastTime = currentTime;
+
 
         /*
-         * Move the cards automatically.
+         * Smooth automatic movement.
+         * The speed is intentionally moderate.
          */
 
-        wrapper.scrollLeft += speed;
+        position += speed * (delta / 16.67);
 
 
         /*
-         * When we reach the end,
-         * start again from the beginning.
+         * Reset smoothly when the end is reached.
          */
 
-        if (
-            wrapper.scrollLeft +
-            wrapper.clientWidth >=
-            wrapper.scrollWidth - 2
-        ) {
+        const maxScroll =
+            wrapper.scrollWidth -
+            wrapper.clientWidth;
 
-            wrapper.scrollLeft = 0;
 
+        if (position >= maxScroll) {
+            position = 0;
         }
 
 
-        animationId =
-            requestAnimationFrame(move);
+        wrapper.scrollLeft = position;
+
+
+        requestAnimationFrame(animate);
 
     }
 
 
-    animationId =
-        requestAnimationFrame(move);
-
-
-    /*
-     * Pause automatic movement while
-     * the user is touching the card area.
-     */
-
-    wrapper.addEventListener(
-        "pointerdown",
-        () => {
-
-            cancelAnimationFrame(
-                animationId
-            );
-
-        }
-    );
-
-
-    wrapper.addEventListener(
-        "pointerup",
-        () => {
-
-            animationId =
-                requestAnimationFrame(move);
-
-        }
-    );
-
-
-    wrapper.addEventListener(
-        "pointercancel",
-        () => {
-
-            animationId =
-                requestAnimationFrame(move);
-
-        }
-    );
+    requestAnimationFrame(animate);
 
 }
 
 
-/*
- * SERVICES
- */
+/* =====================================================
+   SERVICES — WHAT WE DO
+===================================================== */
 
 autoMoveCards(
     ".services-section .horizontal-wrapper",
-    0.28
+    0.32
 );
 
 
-/*
- * PROCESS
- */
+/* =====================================================
+   PROCESS — HOW WE WORK
+===================================================== */
 
 autoMoveCards(
     ".process-section .horizontal-wrapper",
+    0.32
+);
+
+
+/* =====================================================
+   PROJECTS — OUR WORK
+===================================================== */
+
+autoMoveCards(
+    ".projects-section .horizontal-wrapper",
     0.28
 );
 
 
-/*
- * PROJECTS
- */
-
-autoMoveCards(
-    ".projects-section .horizontal-wrapper",
-    0.24
-);
-
-
-/*
- * TESTIMONIALS
- */
+/* =====================================================
+   TESTIMONIALS
+===================================================== */
 
 autoMoveCards(
     ".testimonials-section .horizontal-wrapper",
-    0.24
+    0.28
 );
-
 
 /* =====================================================
    GALLERY
