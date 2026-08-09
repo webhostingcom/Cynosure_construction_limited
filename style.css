@@ -203,12 +203,23 @@ img {
 @media (max-width: 768px) {
 
     .hero {
-        width: calc(100% - 28px);
-        margin: 18px 14px 0;
+        position: relative;
+
+        width: calc(100vw - 28px);
+        max-width: none;
+
+        margin: 18px 0 0;
+
+        left: 50%;
+        transform: translateX(-50%);
+
         height: calc(100vh - 120px);
         min-height: 580px;
+
         border-radius: 28px;
         overflow: hidden;
+
+        color: white;
     }
 
     .hero-background,
