@@ -192,14 +192,7 @@ function autoScrollSlider(selector, speed = 0.35) {
 
     requestAnimationFrame(move);
 }
-
-
-autoScrollSlider(".services-slider", 0.35);
-autoScrollSlider(".delivery-track-wrapper", 0.35);
-autoScrollSlider(".projects-track-wrapper", 0.3);
-autoScrollSlider(".reviews-track-wrapper", 0.3);
-
-
+   
 /* =====================================================
    START AUTO SLIDERS
 ===================================================== */
@@ -429,14 +422,20 @@ document
         );
 
     });
-    
-window.addEventListener("load", () => {
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
 
     const loadingScreen =
         document.getElementById("loadingScreen");
 
+    if (!loadingScreen) return;
+
     setTimeout(() => {
         loadingScreen.classList.add("loaded");
-    }, 1800);
+    }, 1000);
 
 });
