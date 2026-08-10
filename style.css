@@ -612,6 +612,397 @@ a {
 }
 
 /* =====================================================
+   SUBSIDIARIES
+   PREMIUM GROUP SHOWCASE
+===================================================== */
+
+.subsidiaries-section {
+    position: relative;
+    padding: 85px 0 70px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(201,164,92,.055),
+            transparent 55%
+        ),
+        #0b0c0c;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.subsidiaries-heading {
+    position: relative;
+    z-index: 2;
+}
+
+.subsidiaries-heading .section-label {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: .24em;
+    text-transform: uppercase;
+
+    text-shadow: var(--gold-glow);
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.subsidiaries-intro {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-top: 24px;
+}
+
+
+/* =====================================================
+   OVERLAPPING PROFILES
+===================================================== */
+
+.profile-stack {
+    position: relative;
+
+    width: 155px;
+    height: 70px;
+
+    flex-shrink: 0;
+}
+
+.profile {
+    position: absolute;
+
+    top: 0;
+
+    width: 70px;
+    height: 70px;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    border: 2px solid #c9a45c;
+
+    background: #151616;
+
+    box-shadow:
+        0 0 7px rgba(201,164,92,.45),
+        0 0 20px rgba(201,164,92,.18);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* THREE OVERLAPPING POSITIONS */
+
+.profile-one {
+    left: 0;
+
+    z-index: 3;
+}
+
+.profile-two {
+    left: 42px;
+
+    z-index: 2;
+}
+
+.profile-three {
+    left: 84px;
+
+    z-index: 1;
+}
+
+
+/* TAP / HOVER GLOW */
+
+.profile:hover,
+.profile:active {
+    z-index: 10;
+
+    border-color: var(--gold-light);
+
+    box-shadow:
+        0 0 8px rgba(239,210,138,.75),
+        0 0 22px rgba(201,164,92,.5),
+        0 0 42px rgba(201,164,92,.22);
+
+    transform: translateY(-5px);
+}
+
+
+/* =====================================================
+   INTRO TEXT
+===================================================== */
+
+.subsidiaries-copy {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.05;
+}
+
+.subsidiaries-copy strong {
+    color: #f4f1e8;
+
+    font-size: clamp(27px, 4vw, 42px);
+    font-weight: 600;
+
+    letter-spacing: -.04em;
+}
+
+.subsidiaries-copy span {
+    margin-top: 4px;
+
+    color: var(--gold-light);
+
+    font-size: clamp(23px, 3.5vw, 36px);
+    font-weight: 400;
+
+    letter-spacing: -.035em;
+
+    text-shadow:
+        0 0 8px rgba(239,210,138,.35),
+        0 0 22px rgba(201,164,92,.16);
+}
+
+
+/* =====================================================
+   LOGO SLIDER
+===================================================== */
+
+.subsidiary-slider {
+    width: 100%;
+
+    margin-top: 55px;
+
+    overflow: hidden;
+
+    border-top: 1px solid rgba(201,164,92,.14);
+    border-bottom: 1px solid rgba(201,164,92,.14);
+
+    padding: 16px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(201,164,92,.025),
+            rgba(255,255,255,.015),
+            rgba(201,164,92,.025)
+        );
+
+    /* Soft fade at both edges */
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 8%,
+        black 92%,
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 8%,
+        black 92%,
+        transparent
+    );
+}
+
+
+/* MOVING TRACK */
+
+.subsidiary-track {
+    width: max-content;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    animation: subsidiariesMove 22s linear infinite;
+}
+
+
+/* INDIVIDUAL LOGO CARD */
+
+.subsidiary-card {
+    width: 250px;
+    height: 105px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px 25px;
+
+    border: 1px solid rgba(201,164,92,.30);
+
+    border-radius: 8px 28px 8px 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(201,164,92,.015)
+        );
+
+    box-shadow:
+        0 0 8px rgba(201,164,92,.10),
+        inset 0 0 18px rgba(201,164,92,.025);
+
+    transition:
+        border-color .35s ease,
+        box-shadow .35s ease,
+        transform .35s ease;
+}
+
+
+/* LOGOS */
+
+.subsidiary-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 5px rgba(201,164,92,.18));
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+
+/* TAP / HOVER */
+
+.subsidiary-card:hover,
+.subsidiary-card:active {
+    border-color: var(--gold-light);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 8px rgba(239,210,138,.55),
+        0 0 25px rgba(201,164,92,.30),
+        0 0 45px rgba(201,164,92,.14);
+}
+
+.subsidiary-card:hover img,
+.subsidiary-card:active img {
+    transform: scale(1.04);
+
+    filter:
+        drop-shadow(0 0 8px rgba(239,210,138,.45));
+}
+
+
+/* =====================================================
+   CONTINUOUS LEFT MOVEMENT
+===================================================== */
+
+@keyframes subsidiariesMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .subsidiaries-section {
+        padding: 65px 0 55px;
+    }
+
+    .subsidiaries-intro {
+        gap: 18px;
+    }
+
+    .profile-stack {
+        width: 120px;
+        height: 58px;
+    }
+
+    .profile {
+        width: 58px;
+        height: 58px;
+    }
+
+    .profile-two {
+        left: 32px;
+    }
+
+    .profile-three {
+        left: 64px;
+    }
+
+    .subsidiaries-copy strong {
+        font-size: 25px;
+    }
+
+    .subsidiaries-copy span {
+        font-size: 21px;
+    }
+
+    .subsidiary-slider {
+        margin-top: 42px;
+
+        padding: 13px 0;
+    }
+
+    .subsidiary-track {
+        gap: 12px;
+
+        animation-duration: 18s;
+    }
+
+    .subsidiary-card {
+        width: 205px;
+        height: 82px;
+
+        padding: 14px 20px;
+
+        border-radius: 7px 22px 7px 22px;
+    }
+
+}
+
+/* =====================================================
    VIDEO TEXT
 ===================================================== */
 
