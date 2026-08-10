@@ -325,50 +325,55 @@ a {
     transform: translateY(-6.5px) rotate(-45deg);
 }
 
-
 /* =====================================================
    HERO — FLOATING PREMIUM CARD
 ===================================================== */
 
 .hero {
     position: relative;
-    width: calc(100% - 32px);
-    height: min(82vh, 820px);
-    min-height: 620px;
 
-    margin: 18px auto 0;
+    width: calc(100% - 32px);
+    height: 650px;
+
+    margin: 100px auto 0;
 
     border-radius: 28px;
     overflow: hidden;
 
-    border: 1px solid rgba(212, 175, 55, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.72);
 
-    /* Gold floating glow */
+    background: #0b0c0c;
+
     box-shadow:
-        0 0 0 1px rgba(212, 175, 55, 0.18),
-        0 0 18px rgba(212, 175, 55, 0.32),
-        0 0 45px rgba(212, 175, 55, 0.18),
-        0 18px 55px rgba(0, 0, 0, 0.55);
+        0 0 0 1px rgba(212, 175, 55, 0.12),
+        0 0 16px rgba(212, 175, 55, 0.30),
+        0 0 38px rgba(212, 175, 55, 0.16),
+        0 22px 55px rgba(0, 0, 0, 0.58);
 
     isolation: isolate;
 }
 
-/* Keep the video completely inside the rounded card */
+
+/* VIDEO */
 
 .hero-media {
     position: absolute;
     inset: 0;
+
     overflow: hidden;
+
     border-radius: inherit;
 }
 
 .hero-video {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
 
-/* Slightly stronger cinematic overlay */
+
+/* CINEMATIC OVERLAY */
 
 .hero-overlay {
     position: absolute;
@@ -377,54 +382,170 @@ a {
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.72) 0%,
-            rgba(0, 0, 0, 0.38) 48%,
-            rgba(0, 0, 0, 0.22) 100%
+            rgba(0, 0, 0, .72) 0%,
+            rgba(0, 0, 0, .38) 50%,
+            rgba(0, 0, 0, .20) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, .58),
+            transparent 55%
         );
 
     pointer-events: none;
 }
 
-/* Hero content stays above everything */
+
+/* CONTENT */
 
 .hero-content {
     position: relative;
     z-index: 2;
+
+    width: 100%;
     height: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    padding: 70px;
 }
 
-/* =====================================================
-   HERO GOLD TEXT
-===================================================== */
+
+/* HERO TEXT */
 
 .hero-eyebrow {
     color: #d4af37;
 
+    font-size: 13px;
+    letter-spacing: .16em;
+
     text-shadow:
-        0 0 8px rgba(212, 175, 55, 0.55),
-        0 0 20px rgba(212, 175, 55, 0.25);
+        0 0 8px rgba(212, 175, 55, .55),
+        0 0 20px rgba(212, 175, 55, .22);
 }
 
 .hero-content h1 {
+    max-width: 760px;
+
+    margin-top: 14px;
+
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: .98;
+    letter-spacing: -.045em;
+
+    color: #f4f1e8;
+
     text-shadow:
-        0 0 20px rgba(255, 255, 255, 0.08),
-        0 0 35px rgba(212, 175, 55, 0.12);
+        0 0 20px rgba(255,255,255,.08),
+        0 0 35px rgba(212,175,55,.10);
 }
 
 .hero-content h1 em {
     color: #d4af37;
+    font-style: italic;
 
     text-shadow:
-        0 0 10px rgba(212, 175, 55, 0.55),
-        0 0 28px rgba(212, 175, 55, 0.28);
+        0 0 10px rgba(212,175,55,.55),
+        0 0 28px rgba(212,175,55,.28);
 }
 
+.hero-content > p {
+    max-width: 600px;
+
+    margin-top: 20px;
+
+    color: #d0cdc5;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
 /* =====================================================
-   MOBILE
+   HERO BUTTONS
+===================================================== */
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 28px;
+}
+
+.primary-button,
+.secondary-button {
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 25px;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .05em;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+}
+
+
+/* GOLD BUTTON */
+
+.primary-button {
+    background: var(--gold);
+    color: #080909;
+
+    box-shadow:
+        0 0 10px rgba(201,164,92,.28),
+        0 0 25px rgba(201,164,92,.12);
+}
+
+.primary-button:hover,
+.primary-button:active {
+    background: var(--gold-light);
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--gold-glow-strong);
+}
+
+
+/* OUTLINE BUTTON */
+
+.secondary-button {
+    border: 1px solid rgba(244,241,232,.45);
+
+    background: rgba(8,9,9,.18);
+
+    color: #f4f1e8;
+}
+
+.secondary-button:hover,
+.secondary-button:active {
+    border-color: var(--gold-light);
+
+    color: var(--gold-light);
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--gold-glow-strong);
+}
+
+
+/* =====================================================
+   HERO MOBILE
 ===================================================== */
 
 @media (max-width: 768px) {
@@ -432,22 +553,63 @@ a {
     .hero {
         width: calc(100% - 24px);
 
-        margin-top: 12px;
+        height: 560px;
 
-        height: 78vh;
-        min-height: 560px;
+        min-height: 0;
+
+        margin: 88px auto 0;
 
         border-radius: 22px;
 
         box-shadow:
-            0 0 0 1px rgba(212, 175, 55, 0.18),
-            0 0 15px rgba(212, 175, 55, 0.30),
-            0 0 32px rgba(212, 175, 55, 0.16),
-            0 14px 40px rgba(0, 0, 0, 0.55);
+            0 0 0 1px rgba(212,175,55,.14),
+            0 0 15px rgba(212,175,55,.28),
+            0 0 32px rgba(212,175,55,.14),
+            0 18px 42px rgba(0,0,0,.58);
     }
 
-}
+    .hero-content {
+        width: 100%;
 
+        padding: 40px 28px;
+    }
+
+    .hero-eyebrow {
+        font-size: 11px;
+    }
+
+    .hero-content h1 {
+        max-width: 100%;
+
+        margin-top: 12px;
+
+        font-size: 42px;
+        line-height: 1.02;
+    }
+
+    .hero-content > p {
+        margin-top: 16px;
+
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        margin-top: 23px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        min-height: 46px;
+
+        padding: 0 20px;
+
+        font-size: 11px;
+    }
+}
 
 /* =====================================================
    VIDEO TEXT
@@ -1876,10 +2038,6 @@ a {
 
     .text-logo span {
         font-size: 16px;
-    }
-
-    .hero {
-        min-height: 92vh;
     }
 
     .hero-content {
