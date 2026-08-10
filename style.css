@@ -2409,11 +2409,12 @@ section {
 }
 
 /* =====================================================
-   CYNOSURE VIDEO TEXT
+   CYNOSURE VIDEO INSIDE TEXT
 ===================================================== */
 
 .group-showcase {
     width: 100%;
+
     padding: 70px 10px;
 
     background: var(--cream);
@@ -2427,64 +2428,18 @@ section {
     width: 100%;
     max-width: 1200px;
 
-    height: 170px;
+    height: 150px;
 
     margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
 }
 
-/* Hide the actual video */
-.cynosure-video-text video {
-    position: absolute;
+#cynosureTextVideo {
+    display: none;
+}
+
+#cynosureTextCanvas {
+    display: block;
 
     width: 100%;
     height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-}
-
-/* CYNOSURE TEXT */
-
-.cynosure-text {
-    position: relative;
-
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family: "DM Sans", sans-serif;
-
-    font-size: clamp(
-        55px,
-        16vw,
-        180px
-    );
-
-    font-weight: 700;
-
-    line-height: .8;
-
-    letter-spacing: -.07em;
-
-    color: transparent;
-
-    background-image:
-        url("assets/cynosure-text.mp4");
-
-    background-size: cover;
-    background-position: center;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
 }
