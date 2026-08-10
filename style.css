@@ -1977,3 +1977,121 @@ section {
 .gallery-next {
     right: 20px;
 }
+
+/* =====================================================
+   CYNOSURE GROUP SHOWCASE
+===================================================== */
+
+.group-showcase {
+    padding: 55px 16px;
+    background: var(--cream);
+}
+
+.group-showcase-inner {
+    position: relative;
+
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(185,151,91,.12),
+            transparent 55%
+        ),
+        #17140e;
+
+    border: 1px solid rgba(185,151,91,.55);
+
+    box-shadow:
+        0 15px 45px rgba(60,45,20,.16);
+}
+
+.group-showcase-inner::before,
+.group-showcase-inner::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border: 2px solid rgba(185,151,91,.2);
+
+    transform: rotate(45deg);
+}
+
+.group-showcase-inner::before {
+    left: -55px;
+    top: -55px;
+}
+
+.group-showcase-inner::after {
+    right: -55px;
+    bottom: -55px;
+}
+
+.group-building-icon {
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    color: rgba(185,151,91,.3);
+
+    font-size: 55px;
+}
+
+.group-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.group-brand-main {
+    color: #f4e7c5;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: clamp(38px, 12vw, 85px);
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    line-height: 1;
+}
+
+.group-brand-sub {
+    margin-top: 12px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: .35em;
+}
+
+.group-showcase-inner > p {
+    margin-top: 35px;
+
+    color: #aaa08d;
+
+    font-size: 8px;
+
+    letter-spacing: .22em;
+
+    text-align: center;
+}
