@@ -17,16 +17,22 @@
 }
 
 :root {
-    --dark: #151515;
-    --black: #0d0d0c;
-    --white: #ffffff;
-    --cream: #f5f2ec;
+    --dark: #211d16;
+    --black: #0f0d09;
+    --white: #fffdf8;
+
+    --cream: #f3ecdc;
+    --cream-light: #faf6ed;
+    --cream-dark: #e7dcc5;
+
     --gold: #b9975b;
     --gold-light: #d8bd82;
-    --muted: #77736c;
-    --line: #ddd6ca;
+    --gold-pale: #ead8ad;
 
-    --radius: 20px;
+    --muted: #756e62;
+    --line: #d8ccb5;
+
+    --radius: 22px;
 }
 
 html {
