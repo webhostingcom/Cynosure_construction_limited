@@ -2603,3 +2603,376 @@ a {
         transition-duration: .01ms !important;
     }
 }
+
+/* =====================================================
+   OUR BOARD
+   PREMIUM LEADERSHIP SECTION
+===================================================== */
+
+.board-section {
+    position: relative;
+
+    padding: 90px 0 80px;
+
+    overflow: hidden;
+
+    background: #0b0c0c;
+}
+
+
+/* =====================================================
+   BOARD HEADING
+===================================================== */
+
+.board-heading {
+    max-width: 650px;
+
+    margin-bottom: 45px;
+}
+
+.board-heading .section-label {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: .24em;
+    text-transform: uppercase;
+
+    text-shadow: var(--gold-glow);
+}
+
+.board-heading h2 {
+    margin-top: 12px;
+
+    color: var(--cream);
+
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.08;
+
+    letter-spacing: -.04em;
+
+    text-shadow:
+        0 0 18px rgba(201,164,92,.08);
+}
+
+.board-heading p {
+    max-width: 520px;
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   BOARD SLIDER
+===================================================== */
+
+.board-slider {
+    width: 100%;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* Soft edge fade */
+
+.board-slider::before,
+.board-slider::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 90px;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.board-slider::before {
+    left: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0b0c0c,
+            transparent
+        );
+}
+
+.board-slider::after {
+    right: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            #0b0c0c,
+            transparent
+        );
+}
+
+
+/* =====================================================
+   MOVING TRACK
+===================================================== */
+
+.board-track {
+    width: max-content;
+
+    display: flex;
+    align-items: stretch;
+
+    gap: 18px;
+
+    padding: 10px max(24px, calc((100vw - 1180px) / 2));
+
+    animation:
+        boardMove 28s linear infinite;
+}
+
+
+/* =====================================================
+   BOARD CARD
+===================================================== */
+
+.board-card {
+    position: relative;
+
+    width: 275px;
+    height: 365px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(201,164,92,.32);
+
+    border-radius: 8px 42px 8px 42px;
+
+    background: #151616;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.35),
+        0 0 10px rgba(201,164,92,.10);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+
+/* =====================================================
+   BOARD IMAGE
+===================================================== */
+
+.board-image {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+}
+
+.board-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,.92) 0%,
+            rgba(0,0,0,.35) 45%,
+            rgba(0,0,0,.02) 75%
+        );
+}
+
+.board-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .7s ease,
+        filter .5s ease;
+}
+
+
+/* =====================================================
+   BOARD INFORMATION
+===================================================== */
+
+.board-info {
+    position: absolute;
+
+    left: 22px;
+    right: 22px;
+    bottom: 21px;
+
+    z-index: 2;
+}
+
+.board-info h3 {
+    color: #f4f1e8;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.15;
+
+    letter-spacing: -.02em;
+}
+
+.board-info span {
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: .16em;
+    text-transform: uppercase;
+
+    text-shadow: var(--gold-glow);
+}
+
+
+/* =====================================================
+   HOVER / TAP GLOW
+===================================================== */
+
+.board-card:hover,
+.board-card:active {
+    border-color: var(--gold-light);
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 0 8px rgba(239,210,138,.65),
+        0 0 25px rgba(201,164,92,.42),
+        0 0 50px rgba(201,164,92,.18),
+        0 20px 55px rgba(0,0,0,.5);
+}
+
+.board-card:hover .board-image img,
+.board-card:active .board-image img {
+    transform: scale(1.045);
+
+    filter:
+        brightness(1.04)
+        saturate(1.05);
+}
+
+
+/* =====================================================
+   CONTINUOUS LEFT MOVEMENT
+===================================================== */
+
+@keyframes boardMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .board-section {
+        padding: 70px 0 60px;
+    }
+
+    .board-heading {
+        margin-bottom: 30px;
+    }
+
+    .board-heading h2 {
+        font-size: 31px;
+    }
+
+    .board-heading p {
+        font-size: 12px;
+    }
+
+    .board-track {
+        gap: 12px;
+
+        padding:
+            8px 15px;
+
+        animation-duration: 22s;
+    }
+
+    .board-card {
+        width: 205px;
+        height: 290px;
+
+        border-radius: 7px 30px 7px 30px;
+    }
+
+    .board-info {
+        left: 17px;
+        right: 17px;
+        bottom: 17px;
+    }
+
+    .board-info h3 {
+        font-size: 15px;
+    }
+
+    .board-info span {
+        font-size: 8px;
+    }
+
+    .board-slider::before,
+    .board-slider::after {
+        width: 35px;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .board-track {
+        animation: none;
+    }
+
+    .board-card,
+    .board-image img {
+        transition: none;
+    }
+
+}
