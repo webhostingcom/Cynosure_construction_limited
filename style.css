@@ -327,22 +327,39 @@ a {
 
 
 /* =====================================================
-   HERO
+   HERO — FLOATING PREMIUM CARD
 ===================================================== */
 
 .hero {
     position: relative;
-    min-height: 100vh;
+    width: calc(100% - 32px);
+    height: min(82vh, 820px);
+    min-height: 620px;
 
-    display: flex;
-    align-items: center;
+    margin: 18px auto 0;
 
+    border-radius: 28px;
     overflow: hidden;
+
+    border: 1px solid rgba(212, 175, 55, 0.75);
+
+    /* Gold floating glow */
+    box-shadow:
+        0 0 0 1px rgba(212, 175, 55, 0.18),
+        0 0 18px rgba(212, 175, 55, 0.32),
+        0 0 45px rgba(212, 175, 55, 0.18),
+        0 18px 55px rgba(0, 0, 0, 0.55);
+
+    isolation: isolate;
 }
+
+/* Keep the video completely inside the rounded card */
 
 .hero-media {
     position: absolute;
     inset: 0;
+    overflow: hidden;
+    border-radius: inherit;
 }
 
 .hero-video {
@@ -351,6 +368,8 @@ a {
     object-fit: cover;
 }
 
+/* Slightly stronger cinematic overlay */
+
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -358,132 +377,75 @@ a {
     background:
         linear-gradient(
             90deg,
-            rgba(0,0,0,.82),
-            rgba(0,0,0,.38),
-            rgba(0,0,0,.25)
-        ),
-        linear-gradient(
-            0deg,
-            rgba(8,9,9,.72),
-            transparent 50%
+            rgba(0, 0, 0, 0.72) 0%,
+            rgba(0, 0, 0, 0.38) 48%,
+            rgba(0, 0, 0, 0.22) 100%
         );
+
+    pointer-events: none;
 }
+
+/* Hero content stays above everything */
 
 .hero-content {
     position: relative;
     z-index: 2;
+    height: 100%;
 
-    width: min(1180px, calc(100% - 48px));
-    margin: 0 auto;
-
-    padding-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.hero-eyebrow,
-.section-label,
-.action-label {
-    display: inline-block;
+/* =====================================================
+   HERO GOLD TEXT
+===================================================== */
 
-    color: var(--gold-light);
-
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .3em;
-
-    text-shadow: 0 0 14px rgba(239, 210, 138, .25);
-}
-
-.hero h1 {
-    max-width: 720px;
-
-    margin: 18px 0;
-
-    font-size: clamp(48px, 7vw, 88px);
-    line-height: .98;
-    letter-spacing: -.055em;
-    font-weight: 700;
-}
-
-.hero h1 em,
-.section-heading h2 em,
-.section-intro h2 em,
-.action-content h2 em,
-.help-intro h2 em,
-.ownership-heading h2 em,
-.consultation-box h2 em {
-    color: var(--gold-light);
-    font-style: normal;
+.hero-eyebrow {
+    color: #d4af37;
 
     text-shadow:
-        0 0 10px rgba(239, 210, 138, .3),
-        0 0 30px rgba(201, 164, 92, .15);
+        0 0 8px rgba(212, 175, 55, 0.55),
+        0 0 20px rgba(212, 175, 55, 0.25);
 }
 
-.hero-content > p {
-    max-width: 550px;
-
-    color: #cbc7bd;
-
-    font-size: 16px;
-    line-height: 1.8;
+.hero-content h1 {
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.08),
+        0 0 35px rgba(212, 175, 55, 0.12);
 }
 
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
+.hero-content h1 em {
+    color: #d4af37;
 
-    margin-top: 30px;
+    text-shadow:
+        0 0 10px rgba(212, 175, 55, 0.55),
+        0 0 28px rgba(212, 175, 55, 0.28);
 }
 
-.primary-button,
-.secondary-button {
-    min-height: 50px;
+/* =====================================================
+   MOBILE
+===================================================== */
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
+@media (max-width: 768px) {
 
-    padding: 0 23px;
+    .hero {
+        width: calc(100% - 24px);
 
-    border-radius: 50px;
+        margin-top: 12px;
 
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .06em;
+        height: 78vh;
+        min-height: 560px;
 
-    transition: .35s ease;
-}
+        border-radius: 22px;
 
-.primary-button {
-    background: var(--gold);
-    color: #090909;
+        box-shadow:
+            0 0 0 1px rgba(212, 175, 55, 0.18),
+            0 0 15px rgba(212, 175, 55, 0.30),
+            0 0 32px rgba(212, 175, 55, 0.16),
+            0 14px 40px rgba(0, 0, 0, 0.55);
+    }
 
-    box-shadow: var(--gold-glow);
-}
-
-.primary-button span {
-    font-size: 18px;
-}
-
-.primary-button:hover,
-.primary-button:active {
-    transform: translateY(-3px);
-    box-shadow: var(--gold-glow-strong);
-    background: var(--gold-light);
-}
-
-.secondary-button {
-    border: 1px solid rgba(255,255,255,.4);
-    color: #fff;
-}
-
-.secondary-button:hover,
-.secondary-button:active {
-    border-color: var(--gold);
-    color: var(--gold-light);
-    box-shadow: var(--gold-glow);
 }
 
 
