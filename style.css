@@ -2409,103 +2409,82 @@ section {
 }
 
 /* =====================================================
-   CYNOSURE VIDEO INSIDE TEXT
+   CYNOSURE VIDEO TEXT
 ===================================================== */
 
 .group-showcase {
     width: 100%;
-
-    padding: 75px 16px;
+    padding: 70px 10px;
 
     background: var(--cream);
 
     overflow: hidden;
 }
 
-
-/* MAIN CONTAINER */
-
 .cynosure-video-text {
     position: relative;
 
     width: 100%;
-    max-width: 1250px;
+    max-width: 1200px;
+
+    height: 170px;
 
     margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
 }
 
+/* Hide the actual video */
+.cynosure-video-text video {
+    position: absolute;
 
-/* SVG */
-
-.cynosure-text-mask {
     width: 100%;
-
-    display: block;
-}
-
-
-/* TEXT MASK */
-
-.cynosure-mask-text {
-    font-family: "DM Sans", sans-serif;
-
-    font-size: 145px;
-
-    font-weight: 700;
-
-    letter-spacing: -5px;
-
-    fill: white;
-}
-
-
-/* VIDEO */
-
-.svg-video {
-    width: 1000px;
-    height: 180px;
+    height: 100%;
 
     object-fit: cover;
 
-    display: block;
+    opacity: 0;
 }
 
+/* CYNOSURE TEXT */
 
-/* =====================================================
-   MOBILE
-===================================================== */
+.cynosure-text {
+    position: relative;
 
-@media (max-width: 600px) {
+    width: 100%;
 
-    .group-showcase {
-        padding: 55px 10px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .cynosure-mask-text {
-        font-size: 145px;
+    font-family: "DM Sans", sans-serif;
 
-        letter-spacing: -7px;
-    }
+    font-size: clamp(
+        55px,
+        16vw,
+        180px
+    );
 
-}
+    font-weight: 700;
 
+    line-height: .8;
 
-/* =====================================================
-   SMALL PHONES
-===================================================== */
+    letter-spacing: -.07em;
 
-@media (max-width: 380px) {
+    color: transparent;
 
-    .group-showcase {
-        padding: 50px 8px;
-    }
+    background-image:
+        url("assets/cynosure-text.mp4");
 
-    .cynosure-mask-text {
-        font-size: 150px;
-    }
+    background-size: cover;
+    background-position: center;
 
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
 }
