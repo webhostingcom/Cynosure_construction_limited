@@ -749,6 +749,245 @@ document
 
     });
 
+/* =====================================================
+   CYNOSURE VIDEO INSIDE TEXT
+===================================================== */
+
+const cynosureVideo =
+    document.getElementById("cynosureTextVideo");
+
+const cynosureCanvas =
+    document.getElementById("cynosureTextCanvas");
+
+
+if (cynosureVideo && cynosureCanvas) {
+
+    const ctx =
+        cynosureCanvas.getContext("2d");
+
+    function resizeCynosureCanvas() {
+
+        const rect =
+            cynosureCanvas.getBoundingClientRect();
+
+        const pixelRatio =
+            window.devicePixelRatio || 1;
+
+        cynosureCanvas.width =
+            rect.width * pixelRatio;
+
+        cynosureCanvas.height =
+            rect.height * pixelRatio;
+
+        ctx.setTransform(
+            pixelRatio,
+            0,
+            0,
+            pixelRatio,
+            0,
+            0
+        );
+    }
+
+
+    function drawCynosureVideo() {
+
+        const width =
+            cynosureCanvas.clientWidth;
+
+        const height =
+            cynosureCanvas.clientHeight;
+
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        /*
+         * Create the text mask.
+         */
+
+        ctx.save();
+
+        ctx.font =
+            "700 " +
+            Math.min(
+                width * 0.17,
+                175
+            ) +
+            "px DM Sans";
+
+        ctx.textAlign = "center";
+
+        ctx.textBaseline = "middle";
+
+        ctx.fillStyle = "#000";
+
+
+        /*
+         * Draw CYNOSURE as the mask.
+         */
+
+        ctx.fillText(
+            "CYNOSURE",
+            width / 2,
+            height / 2
+        );
+
+
+        /*
+         * Keep only the area
+         * occupied by the text.
+         */
+
+        ctx.globalCompositeOperation =
+            "source-in";
+
+
+        /*
+         * Draw the video inside
+         * the text.
+         */
+
+        if (
+            cynosureVideo.readyState >= 2
+        ) {
+
+            const videoWidth =
+                cynosureVideo.videoWidth;
+
+            const videoHeight =
+                cynosureVideo.videoHeight;
+
+
+            if (
+                videoWidth &&
+                videoHeight
+            ) {
+
+                const videoRatio =
+                    videoWidth /
+                    videoHeight;
+
+                const canvasRatio =
+                    width / height;
+
+
+                let drawWidth;
+                let drawHeight;
+                let offsetX;
+                let offsetY;
+
+
+                if (
+                    videoRatio > canvasRatio
+                ) {
+
+                    drawHeight =
+                        height;
+
+                    drawWidth =
+                        height *
+                        videoRatio;
+
+                    offsetX =
+                        (width -
+                        drawWidth) / 2;
+
+                    offsetY = 0;
+
+                } else {
+
+                    drawWidth =
+                        width;
+
+                    drawHeight =
+                        width /
+                        videoRatio;
+
+                    offsetX = 0;
+
+                    offsetY =
+                        (height -
+                        drawHeight) / 2;
+
+                }
+
+
+                ctx.drawImage(
+                    cynosureVideo,
+                    offsetX,
+                    offsetY,
+                    drawWidth,
+                    drawHeight
+                );
+
+            }
+
+        }
+
+
+        ctx.restore();
+
+
+        requestAnimationFrame(
+            drawCynosureVideo
+        );
+    }
+
+
+    /*
+     * Make sure the video is ready.
+     */
+
+    cynosureVideo.addEventListener(
+        "loadeddata",
+        () => {
+
+            resizeCynosureCanvas();
+
+            cynosureVideo.play()
+                .catch(() => {});
+
+            drawCynosureVideo();
+
+        }
+    );
+
+
+    /*
+     * Resize when the screen changes.
+     */
+
+    window.addEventListener(
+        "resize",
+        resizeCynosureCanvas
+    );
+
+
+    /*
+     * Start immediately if
+     * video is already loaded.
+     */
+
+    if (
+        cynosureVideo.readyState >= 2
+    ) {
+
+        resizeCynosureCanvas();
+
+        cynosureVideo.play()
+            .catch(() => {});
+
+        drawCynosureVideo();
+
+    }
+
+}
 
 /* =====================================================
    END
