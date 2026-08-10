@@ -13,11 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("loadingScreen");
 
     if (loadingScreen) {
+
         window.addEventListener("load", () => {
+
             setTimeout(() => {
                 loadingScreen.classList.add("loaded");
-            }, 1400);
+            }, 1000);
+
         });
+
     }
 
 
@@ -31,55 +35,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainNav =
         document.getElementById("mainNav");
 
+
     if (mobileToggle && mainNav) {
 
         mobileToggle.addEventListener("click", () => {
 
-            const isOpen =
+            const opened =
                 mainNav.classList.toggle("active");
 
             mobileToggle.classList.toggle(
                 "active",
-                isOpen
+                opened
             );
 
             document.body.classList.toggle(
                 "menu-open",
-                isOpen
+                opened
             );
 
             mobileToggle.setAttribute(
                 "aria-expanded",
-                String(isOpen)
+                String(opened)
             );
 
         });
 
 
-        mainNav
-            .querySelectorAll("a")
-            .forEach(link => {
+        mainNav.querySelectorAll("a").forEach(link => {
 
-                link.addEventListener("click", () => {
+            link.addEventListener("click", () => {
 
-                    mainNav.classList.remove("active");
+                mainNav.classList.remove("active");
 
-                    mobileToggle.classList.remove(
-                        "active"
-                    );
+                mobileToggle.classList.remove("active");
 
-                    document.body.classList.remove(
-                        "menu-open"
-                    );
+                document.body.classList.remove(
+                    "menu-open"
+                );
 
-                    mobileToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                });
+                mobileToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
             });
+
+        });
 
     }
 
@@ -91,94 +92,332 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroVideo =
         document.getElementById("heroVideo");
 
+
     if (heroVideo) {
 
         heroVideo.muted = true;
         heroVideo.playsInline = true;
 
-        const playHeroVideo = () => {
-
-            const promise =
-                heroVideo.play();
-
-            if (promise !== undefined) {
-                promise.catch(() => {
-                    // Browser blocked autoplay.
-                });
-            }
-
-        };
-
-        playHeroVideo();
-
-        heroVideo.addEventListener(
-            "loadeddata",
-            playHeroVideo
-        );
+        heroVideo.play().catch(() => {});
 
     }
 
 
     /* =================================================
-       STAT COUNTERS
+       CYNOSURE TEXT VIDEO
     ================================================= */
 
-    const counters =
-        document.querySelectorAll(
-            ".stat-number[data-target]"
+    const cynosureVideo =
+        document.getElementById(
+            "cynosureTextVideo"
         );
 
-    function startCounter(counter) {
+    const cynosureCanvas =
+        document.getElementById(
+            "cynosureTextCanvas"
+        );
 
-        const target =
-            Number(counter.dataset.target);
 
-        if (!Number.isFinite(target)) {
-            return;
+    if (
+        cynosureVideo &&
+        cynosureCanvas
+    ) {
+
+        const ctx =
+            cynosureCanvas.getContext("2d");
+
+
+        let animationStarted = false;
+
+
+        function resizeCynosureCanvas() {
+
+            const rect =
+                cynosureCanvas.getBoundingClientRect();
+
+            const ratio =
+                window.devicePixelRatio || 1;
+
+
+            cynosureCanvas.width =
+                rect.width * ratio;
+
+            cynosureCanvas.height =
+                rect.height * ratio;
+
+
+            ctx.setTransform(
+                ratio,
+                0,
+                0,
+                ratio,
+                0,
+                0
+            );
+
         }
 
-        const duration = 1800;
-        const startTime = performance.now();
 
-        function updateCounter(currentTime) {
+        function drawCynosureVideo() {
 
-            const progress =
-                Math.min(
-                    (currentTime - startTime) /
-                    duration,
-                    1
-                );
+            const width =
+                cynosureCanvas.clientWidth;
 
-            const eased =
-                1 - Math.pow(
-                    1 - progress,
-                    3
-                );
+            const height =
+                cynosureCanvas.clientHeight;
 
-            const value =
-                Math.floor(
-                    eased * target
-                );
 
-            counter.textContent = value;
-
-            if (progress < 1) {
+            if (!width || !height) {
 
                 requestAnimationFrame(
-                    updateCounter
+                    drawCynosureVideo
                 );
 
-            } else {
+                return;
 
-                counter.textContent = target;
+            }
+
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            /* -----------------------------------------
+               TEXT MASK
+            ----------------------------------------- */
+
+            ctx.save();
+
+
+            const fontSize =
+                Math.min(
+                    width * 0.17,
+                    175
+                );
+
+
+            ctx.font =
+                `700 ${fontSize}px "DM Sans", sans-serif`;
+
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            ctx.fillStyle = "#000";
+
+
+            ctx.fillText(
+                "CYNOSURE",
+                width / 2,
+                height / 2
+            );
+
+
+            /* -----------------------------------------
+               KEEP VIDEO ONLY INSIDE TEXT
+            ----------------------------------------- */
+
+            ctx.globalCompositeOperation =
+                "source-in";
+
+
+            if (
+                cynosureVideo.readyState >= 2 &&
+                cynosureVideo.videoWidth &&
+                cynosureVideo.videoHeight
+            ) {
+
+                const videoWidth =
+                    cynosureVideo.videoWidth;
+
+                const videoHeight =
+                    cynosureVideo.videoHeight;
+
+
+                const videoRatio =
+                    videoWidth / videoHeight;
+
+                const canvasRatio =
+                    width / height;
+
+
+                let drawWidth;
+                let drawHeight;
+                let offsetX;
+                let offsetY;
+
+
+                if (
+                    videoRatio > canvasRatio
+                ) {
+
+                    drawHeight = height;
+
+                    drawWidth =
+                        height * videoRatio;
+
+                    offsetX =
+                        (width - drawWidth) / 2;
+
+                    offsetY = 0;
+
+                } else {
+
+                    drawWidth = width;
+
+                    drawHeight =
+                        width / videoRatio;
+
+                    offsetX = 0;
+
+                    offsetY =
+                        (height - drawHeight) / 2;
+
+                }
+
+
+                ctx.drawImage(
+                    cynosureVideo,
+                    offsetX,
+                    offsetY,
+                    drawWidth,
+                    drawHeight
+                );
+
+            }
+
+
+            ctx.restore();
+
+
+            requestAnimationFrame(
+                drawCynosureVideo
+            );
+
+        }
+
+
+        function startCynosureVideo() {
+
+            resizeCynosureCanvas();
+
+            cynosureVideo.play()
+                .catch(() => {});
+
+
+            if (!animationStarted) {
+
+                animationStarted = true;
+
+                requestAnimationFrame(
+                    drawCynosureVideo
+                );
 
             }
 
         }
 
-        requestAnimationFrame(
-            updateCounter
+
+        cynosureVideo.addEventListener(
+            "loadeddata",
+            startCynosureVideo
         );
+
+
+        window.addEventListener(
+            "resize",
+            resizeCynosureCanvas
+        );
+
+
+        if (
+            cynosureVideo.readyState >= 2
+        ) {
+
+            startCynosureVideo();
+
+        }
+
+    }
+
+
+    /* =================================================
+       NUMBER COUNTERS
+    ================================================= */
+
+    const counters =
+        document.querySelectorAll(
+            ".stat-number"
+        );
+
+
+    function startCounter(counter) {
+
+        const target =
+            Number(
+                counter.dataset.target
+            );
+
+
+        if (!Number.isFinite(target)) {
+            return;
+        }
+
+
+        const duration = 1600;
+
+        const start =
+            performance.now();
+
+
+        function update(currentTime) {
+
+            const progress =
+                Math.min(
+                    (currentTime - start) /
+                    duration,
+                    1
+                );
+
+
+            const eased =
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
+
+
+            const value =
+                Math.floor(
+                    target * eased
+                );
+
+
+            counter.textContent =
+                value;
+
+
+            if (progress < 1) {
+
+                requestAnimationFrame(
+                    update
+                );
+
+            } else {
+
+                counter.textContent =
+                    target;
+
+            }
+
+        }
+
+
+        requestAnimationFrame(update);
 
     }
 
@@ -209,14 +448,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 },
                 {
-                    threshold: 0.45
+                    threshold: 0.5
                 }
             );
 
 
         counters.forEach(counter => {
 
-            counterObserver.observe(counter);
+            counterObserver.observe(
+                counter
+            );
 
         });
 
@@ -224,7 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       AUTOMATIC HORIZONTAL SLIDERS
+       AUTOMATIC HORIZONTAL MOVEMENT
     ================================================= */
 
     function autoMoveCards(
@@ -235,23 +476,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const wrapper =
             document.querySelector(selector);
 
+
         if (!wrapper) {
             return;
         }
 
+
         let position = 0;
-        let lastTime = performance.now();
+
+        let lastTime =
+            performance.now();
+
 
         function animate(currentTime) {
 
             const delta =
                 currentTime - lastTime;
 
-            lastTime = currentTime;
+
+            lastTime =
+                currentTime;
+
 
             const maxScroll =
                 wrapper.scrollWidth -
                 wrapper.clientWidth;
+
 
             if (maxScroll <= 0) {
 
@@ -260,24 +510,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 return;
+
             }
+
 
             position +=
                 speed *
                 (delta / 16.67);
 
-            if (position >= maxScroll) {
+
+            /*
+             * Reset to beginning.
+             */
+
+            if (
+                position >= maxScroll
+            ) {
+
                 position = 0;
+
             }
+
 
             wrapper.scrollLeft =
                 position;
+
 
             requestAnimationFrame(
                 animate
             );
 
         }
+
 
         requestAnimationFrame(
             animate
@@ -327,31 +591,166 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
+       SUBSIDIARIES — LOGO TRACK
+    ================================================= */
+
+    const subsidiaryTrack =
+        document.querySelector(
+            ".subsidiaries-track"
+        );
+
+
+    if (subsidiaryTrack) {
+
+        let position = 0;
+
+        let lastTime =
+            performance.now();
+
+
+        function moveSubsidiaryLogos(
+            currentTime
+        ) {
+
+            const delta =
+                currentTime - lastTime;
+
+
+            lastTime =
+                currentTime;
+
+
+            position +=
+                0.35 *
+                (delta / 16.67);
+
+
+            const halfWidth =
+                subsidiaryTrack.scrollWidth / 2;
+
+
+            if (
+                position >= halfWidth
+            ) {
+
+                position = 0;
+
+            }
+
+
+            subsidiaryTrack.style.transform =
+                `translate3d(-${position}px, 0, 0)`;
+
+
+            requestAnimationFrame(
+                moveSubsidiaryLogos
+            );
+
+        }
+
+
+        requestAnimationFrame(
+            moveSubsidiaryLogos
+        );
+
+    }
+
+
+    /* =================================================
+       GOLD CARD TAP / TOUCH EFFECT
+    ================================================= */
+
+    const interactiveCards =
+        document.querySelectorAll(
+            `
+            .service-card,
+            .process-card,
+            .project-card,
+            .why-card,
+            .testimonial-card,
+            .ownership-card,
+            .help-option
+            `
+        );
+
+
+    interactiveCards.forEach(card => {
+
+        card.addEventListener(
+            "pointerdown",
+            () => {
+
+                card.classList.add(
+                    "card-active"
+                );
+
+            }
+        );
+
+
+        card.addEventListener(
+            "pointerup",
+            () => {
+
+                setTimeout(() => {
+
+                    card.classList.remove(
+                        "card-active"
+                    );
+
+                }, 450);
+
+            }
+        );
+
+
+        card.addEventListener(
+            "pointercancel",
+            () => {
+
+                card.classList.remove(
+                    "card-active"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =================================================
        GALLERY
     ================================================= */
 
     const galleryImages = [
+
         "assets/gallery-1.jpg",
         "assets/gallery-2.jpg",
         "assets/gallery-3.jpg"
+
     ];
 
+
     let currentGallery = 0;
+
 
     const galleryImage =
         document.getElementById(
             "galleryImage"
         );
 
+
     const galleryCounter =
         document.getElementById(
             "galleryCounter"
         );
 
+
     const galleryPrev =
         document.getElementById(
             "galleryPrev"
         );
+
 
     const galleryNext =
         document.getElementById(
@@ -364,6 +763,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!galleryImage) {
             return;
         }
+
 
         if (index < 0) {
 
@@ -383,21 +783,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
+        /*
+         * Small fade effect.
+         */
+
         galleryImage.style.opacity = "0";
 
 
         setTimeout(() => {
 
             galleryImage.src =
-                galleryImages[currentGallery];
+                galleryImages[
+                    currentGallery
+                ];
 
-            galleryImage.onload = () => {
 
-                galleryImage.style.opacity = "1";
+            galleryImage.style.opacity = "1";
 
-            };
-
-        }, 150);
+        }, 180);
 
 
         if (galleryCounter) {
@@ -454,6 +857,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "consultationForm"
         );
 
+
     const enquiryMessage =
         document.getElementById(
             "formSuccess"
@@ -483,7 +887,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (submitButton) {
 
-                    submitButton.disabled = true;
+                    submitButton.disabled =
+                        true;
 
                     submitButton.textContent =
                         "SENDING...";
@@ -491,29 +896,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                /*
-                 * IMPORTANT
-                 *
-                 * Replace YOUR_FORM_ID
-                 * with your real Formspree ID.
-                 */
-
-                const formEndpoint =
-                    "https://formspree.io/f/YOUR_FORM_ID";
-
-
                 try {
+
+                    /*
+                     * Replace YOUR_FORM_ID
+                     * with your real Formspree ID.
+                     */
 
                     const response =
                         await fetch(
-                            formEndpoint,
+                            "https://formspree.io/f/YOUR_FORM_ID",
                             {
                                 method: "POST",
 
                                 body: formData,
 
                                 headers: {
-                                    "Accept":
+                                    Accept:
                                         "application/json"
                                 }
                             }
@@ -521,9 +920,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     if (!response.ok) {
+
                         throw new Error(
-                            "Form submission failed."
+                            "Form submission failed"
                         );
+
                     }
 
 
@@ -587,9 +988,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         submitButton.disabled =
                             false;
 
-                        submitButton.textContent =
-                            "SEND ENQUIRY";
-
                     }
 
                 }, 3000);
@@ -598,6 +996,54 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
     }
+
+
+    /* =================================================
+       HEADER SCROLL EFFECT
+    ================================================= */
+
+    const header =
+        document.querySelector(
+            ".site-header"
+        );
+
+
+    function updateHeader() {
+
+        if (!header) {
+            return;
+        }
+
+
+        if (
+            window.scrollY > 40
+        ) {
+
+            header.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            header.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        {
+            passive: true
+        }
+    );
+
+
+    updateHeader();
 
 
     /* =================================================
@@ -612,7 +1058,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (backToTop) {
 
-        const updateBackToTop =
+        window.addEventListener(
+            "scroll",
             () => {
 
                 if (
@@ -631,12 +1078,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-            };
-
-
-        window.addEventListener(
-            "scroll",
-            updateBackToTop,
+            },
             {
                 passive: true
             }
@@ -655,45 +1097,43 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         );
 
-
-        updateBackToTop();
-
     }
 
 
     /* =================================================
-       HEADER SCROLL EFFECT
+       WHATSAPP FLOATING BUTTON
     ================================================= */
 
-    const header =
+    const whatsappButton =
         document.querySelector(
-            ".site-header"
+            ".whatsapp-float"
         );
 
 
-    if (header) {
+    if (whatsappButton) {
 
-        const updateHeader =
-            () => {
+        whatsappButton.addEventListener(
+            "click",
+            event => {
 
-                header.classList.toggle(
-                    "scrolled",
-                    window.scrollY > 40
-                );
+                /*
+                 * Replace the number in the
+                 * HTML href with the real
+                 * Cynosure WhatsApp number.
+                 */
 
-            };
+                if (
+                    !whatsappButton.getAttribute(
+                        "href"
+                    )
+                ) {
 
+                    event.preventDefault();
 
-        window.addEventListener(
-            "scroll",
-            updateHeader,
-            {
-                passive: true
+                }
+
             }
         );
-
-
-        updateHeader();
 
     }
 
@@ -723,13 +1163,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         targetId === "#"
                     ) {
 
-                        event.preventDefault();
-
-                        window.scrollTo({
-                            top: 0,
-                            behavior: "smooth"
-                        });
-
                         return;
 
                     }
@@ -741,18 +1174,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         );
 
 
-                    if (!target) {
-                        return;
+                    if (target) {
+
+                        event.preventDefault();
+
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
                     }
-
-
-                    event.preventDefault();
-
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
 
                 }
             );
@@ -761,323 +1193,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =================================================
-       CYNOSURE VIDEO TEXT
+       GALLERY IMAGE TRANSITION
     ================================================= */
 
-    const cynosureVideo =
-        document.getElementById(
-            "cynosureTextVideo"
+    if (galleryImage) {
+
+        galleryImage.style.transition =
+            "opacity 0.18s ease";
+
+    }
+
+
+    /* =================================================
+       VIDEO VISIBILITY
+    ================================================= */
+
+    const videos =
+        document.querySelectorAll(
+            "video"
         );
 
-    const cynosureCanvas =
-        document.getElementById(
-            "cynosureTextCanvas"
-        );
 
+    videos.forEach(video => {
 
-    if (
-        cynosureVideo &&
-        cynosureCanvas
-    ) {
-
-        const ctx =
-            cynosureCanvas.getContext(
-                "2d"
-            );
-
-
-        if (!ctx) {
-            return;
-        }
-
-
-        let animationStarted = false;
-
-
-        function resizeCynosureCanvas() {
-
-            const rect =
-                cynosureCanvas.getBoundingClientRect();
-
-            const pixelRatio =
-                Math.min(
-                    window.devicePixelRatio || 1,
-                    2
-                );
-
-
-            cynosureCanvas.width =
-                Math.max(
-                    1,
-                    Math.floor(
-                        rect.width *
-                        pixelRatio
-                    )
-                );
-
-
-            cynosureCanvas.height =
-                Math.max(
-                    1,
-                    Math.floor(
-                        rect.height *
-                        pixelRatio
-                    )
-                );
-
-
-            ctx.setTransform(
-                pixelRatio,
-                0,
-                0,
-                pixelRatio,
-                0,
-                0
-            );
-
-        }
-
-
-        function drawCynosureVideo() {
-
-            const width =
-                cynosureCanvas.clientWidth;
-
-            const height =
-                cynosureCanvas.clientHeight;
-
-
-            if (
-                width <= 0 ||
-                height <= 0
-            ) {
-
-                requestAnimationFrame(
-                    drawCynosureVideo
-                );
-
-                return;
-
-            }
-
-
-            ctx.clearRect(
-                0,
-                0,
-                width,
-                height
-            );
-
-
-            /*
-             * Draw the text mask.
-             */
-
-            ctx.save();
-
-
-            const fontSize =
-                Math.min(
-                    width * 0.17,
-                    175
-                );
-
-
-            ctx.font =
-                `700 ${fontSize}px "DM Sans", sans-serif`;
-
-
-            ctx.textAlign =
-                "center";
-
-
-            ctx.textBaseline =
-                "middle";
-
-
-            ctx.fillStyle =
-                "#000";
-
-
-            ctx.fillText(
-                "CYNOSURE",
-                width / 2,
-                height / 2
-            );
-
-
-            /*
-             * Keep only the text area.
-             */
-
-            ctx.globalCompositeOperation =
-                "source-in";
-
-
-            /*
-             * Draw video inside
-             * the CYNOSURE text.
-             */
-
-            if (
-                cynosureVideo.readyState >= 2 &&
-                cynosureVideo.videoWidth &&
-                cynosureVideo.videoHeight
-            ) {
-
-                const videoWidth =
-                    cynosureVideo.videoWidth;
-
-                const videoHeight =
-                    cynosureVideo.videoHeight;
-
-
-                const videoRatio =
-                    videoWidth /
-                    videoHeight;
-
-
-                const canvasRatio =
-                    width /
-                    height;
-
-
-                let drawWidth;
-                let drawHeight;
-                let offsetX;
-                let offsetY;
-
+        video.addEventListener(
+            "visibilitychange",
+            () => {
 
                 if (
-                    videoRatio > canvasRatio
+                    document.hidden
                 ) {
 
-                    drawHeight =
-                        height;
-
-                    drawWidth =
-                        height *
-                        videoRatio;
-
-                    offsetX =
-                        (width -
-                            drawWidth) /
-                        2;
-
-                    offsetY = 0;
+                    video.pause();
 
                 } else {
 
-                    drawWidth =
-                        width;
-
-                    drawHeight =
-                        width /
-                        videoRatio;
-
-                    offsetX = 0;
-
-                    offsetY =
-                        (height -
-                            drawHeight) /
-                        2;
+                    video.play()
+                        .catch(() => {});
 
                 }
 
-
-                ctx.drawImage(
-                    cynosureVideo,
-                    offsetX,
-                    offsetY,
-                    drawWidth,
-                    drawHeight
-                );
-
             }
-
-
-            ctx.restore();
-
-
-            requestAnimationFrame(
-                drawCynosureVideo
-            );
-
-        }
-
-
-        function startCynosureVideo() {
-
-            cynosureVideo.muted =
-                true;
-
-            cynosureVideo.playsInline =
-                true;
-
-
-            const promise =
-                cynosureVideo.play();
-
-
-            if (promise !== undefined) {
-
-                promise.catch(() => {
-                    // Autoplay may be blocked.
-                });
-
-            }
-
-
-            resizeCynosureCanvas();
-
-
-            if (!animationStarted) {
-
-                animationStarted = true;
-
-                requestAnimationFrame(
-                    drawCynosureVideo
-                );
-
-            }
-
-        }
-
-
-        cynosureVideo.addEventListener(
-            "loadeddata",
-            startCynosureVideo
         );
 
-
-        cynosureVideo.addEventListener(
-            "canplay",
-            startCynosureVideo
-        );
+    });
 
 
-        window.addEventListener(
-            "resize",
-            resizeCynosureCanvas
-        );
+    /* =================================================
+       PAGE READY
+    ================================================= */
 
-
-        /*
-         * If the video is already loaded.
-         */
-
-        if (
-            cynosureVideo.readyState >= 2
-        ) {
-
-            startCynosureVideo();
-
-        } else {
-
-            resizeCynosureCanvas();
-
-        }
-
-    }
+    document.body.classList.add(
+        "page-ready"
+    );
 
 });
