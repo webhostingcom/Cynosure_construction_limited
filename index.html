@@ -1,274 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Cynosure Construction</title>
 
     <meta
         name="description"
-        content="Cynosure Construction provides dependable construction solutions designed around quality, craftsmanship and long-term value."
+        content="Cynosure Construction — quality construction services delivered with precision, reliability and care."
     >
 
+    <meta name="theme-color" content="#0b0b09">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      LOADING SCREEN
 ===================================================== -->
 
-<div class="loading-screen" id="loadingScreen">
-    <div class="loading-logo">
-        <span>CYNOSURE</span>
-        <small>CONSTRUCTION</small>
+<div
+    class="loading-screen"
+    id="loadingScreen"
+>
+
+    <div class="loading-content">
+
+        <img
+            src="assets/logo.png"
+            alt="Cynosure Construction"
+            class="loading-logo"
+        >
+
+        <p>
+            YOUR TRUSTED CONSTRUCTION SERVICE
+        </p>
+
+        <div class="loading-line">
+            <span></span>
+        </div>
+
     </div>
+
 </div>
+
 
 
 <!-- =====================================================
      HEADER
 ===================================================== -->
 
-<header class="site-header" id="siteHeader">
+<header class="site-header">
 
-    <div class="container header-inner">
+    <nav class="nav-bar">
 
-        <a href="#" class="text-logo">
-            <span>CYNOSURE</span>
-            <small>CONSTRUCTION</small>
-        </a>
+        <div class="container nav-inner">
 
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="#about">About</a>
-            <a href="#services">What We Do</a>
-            <a href="#process">How We Work</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
 
-        <a href="#contact" class="header-button">
-            Work With Us
-            <span>↗</span>
-        </a>
+            <!-- LOGO -->
 
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
-        >
-            <span></span>
-            <span></span>
-        </button>
+            <a
+                href="#"
+                class="text-logo"
+            >
 
-    </div>
+                <span>
+                    CYNOSURE
+                </span>
+
+                <small>
+                    CONSTRUCTION
+                </small>
+
+            </a>
+
+
+
+            <!-- MAIN NAVIGATION -->
+
+            <nav
+                class="main-nav"
+                id="mainNav"
+            >
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#process">
+                    Process
+                </a>
+
+                <a href="#gallery">
+                    Gallery
+                </a>
+
+                <a href="#testimonials">
+                    Testimonials
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+
+            <!-- NAV RIGHT -->
+
+            <div class="nav-right">
+
+                <a
+                    href="#contact"
+                    class="nav-contact"
+                >
+                    Let's Talk
+                </a>
+
+
+                <button
+                    class="mobile-toggle"
+                    id="mobileToggle"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
 
 </header>
 
 
-<!-- =====================================================
-     MOBILE NAVIGATION
-===================================================== -->
-
-<div class="mobile-nav" id="mobileNav">
-
-    <nav aria-label="Mobile navigation">
-
-        <a href="#about">About</a>
-        <a href="#services">What We Do</a>
-        <a href="#process">How We Work</a>
-        <a href="#projects">Projects</a>
-        <a href="#board">Leadership</a>
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-</div>
-
 
 <main>
+
 
 
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section class="hero-section" id="home">
+<section class="hero">
 
     <div class="hero-media">
 
         <video
+            id="heroVideo"
             class="hero-video"
             autoplay
             muted
             loop
             playsinline
-            poster="assets/hero.jpg"
+            preload="auto"
         >
-            <source src="assets/hero.mp4" type="video/mp4">
+
+            <source
+                src="assets/hero.mp4"
+                type="video/mp4"
+            >
+
         </video>
 
-        <img
-            class="hero-image"
-            src="assets/hero.jpg"
-            alt="Cynosure Construction project"
-        >
+        <div class="hero-overlay"></div>
 
     </div>
 
-    <div class="hero-overlay"></div>
 
-    <div class="hero-grain"></div>
 
-    <div class="container hero-content">
+    <div class="hero-content">
 
-        <span class="hero-label">
-            CYNOSURE CONSTRUCTION
+        <span class="hero-eyebrow">
+            BUILDING WITH PURPOSE
         </span>
 
+
         <h1>
-            Building
+
+            Built to last.
+
             <em>
-                with purpose.
+                Built for you.
             </em>
+
         </h1>
 
+
         <p>
-            Dependable construction solutions built around
-            quality, craftsmanship and long-term value.
+
+            Quality construction services delivered
+            with precision, reliability and attention
+            to every detail.
+
         </p>
 
-        <div class="hero-buttons">
 
-            <a href="#contact" class="primary-button">
+        <div class="hero-actions">
+
+            <a
+                href="#contact"
+                class="primary-button"
+            >
+
                 Start a Project
-                <span>↗</span>
+
+                <span>
+                    ↗
+                </span>
+
             </a>
 
-            <a href="#projects" class="secondary-button">
+
+            <a
+                href="#projects"
+                class="secondary-button"
+            >
+
                 Explore Our Work
+
             </a>
 
         </div>
 
     </div>
 
-    <div class="hero-bottom">
-
-        <span>
-            BUILT FOR TOMORROW
-        </span>
-
-        <span>
-            SCROLL TO EXPLORE ↓
-        </span>
-
-    </div>
-
 </section>
+
 
 
 <!-- =====================================================
      SUBSIDIARIES
 ===================================================== -->
 
-<section class="subsidiaries-section" id="subsidiaries">
+<section
+    class="subsidiaries-section"
+    id="subsidiaries"
+>
 
     <div class="container">
 
-        <div class="section-heading">
+
+        <div class="subsidiaries-heading">
 
             <span class="section-label">
                 OUR SUBSIDIARIES
             </span>
 
-            <h2>
-                One vision.
-                <em>Multiple capabilities.</em>
-            </h2>
 
-            <p>
-                Our connected businesses bring together the
-                expertise required to move ideas from concept
-                to completed reality.
-            </p>
+            <div class="subsidiaries-intro">
+
+                <!-- OVERLAPPING PROFILES -->
+
+                <div class="profile-stack">
+
+                    <div class="profile profile-one">
+
+                        <img
+                            src="assets/subsidiary-profile-1.jpg"
+                            alt="Cynosure group member"
+                        >
+
+                    </div>
+
+
+                    <div class="profile profile-two">
+
+                        <img
+                            src="assets/subsidiary-profile-2.jpg"
+                            alt="Cynosure group member"
+                        >
+
+                    </div>
+
+
+                    <div class="profile profile-three">
+
+                        <img
+                            src="assets/subsidiary-profile-3.jpg"
+                            alt="Cynosure group member"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="subsidiaries-copy">
+
+                    <strong>
+                        One group,
+                    </strong>
+
+                    <span>
+                        multiple solutions.
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
+
     </div>
 
-    <div class="horizontal-wrapper auto-slider">
-
-        <div class="subsidiaries-track">
-
-            <article class="subsidiary-card">
-
-                <div class="subsidiary-logo">
-                    <img src="assets/subsidiary-1.png" alt="Cynosure subsidiary">
-                </div>
-
-                <span>01</span>
-
-                <h3>
-                    Cynosure Construction
-                </h3>
-
-                <p>
-                    Construction delivery, building works
-                    and project execution.
-                </p>
-
-                <a href="#contact">Learn More ↗</a>
-
-            </article>
 
 
-            <article class="subsidiary-card">
+    <!-- MOVING COMPANY LOGOS -->
 
-                <div class="subsidiary-logo">
-                    <img src="assets/subsidiary-2.png" alt="Cynosure subsidiary">
-                </div>
+    <div class="subsidiary-slider">
 
-                <span>02</span>
-
-                <h3>
-                    Cynosure Development
-                </h3>
-
-                <p>
-                    Development solutions shaped around
-                    quality spaces and lasting value.
-                </p>
-
-                <a href="#contact">Learn More ↗</a>
-
-            </article>
+        <div class="subsidiary-track">
 
 
-            <article class="subsidiary-card">
+            <!-- SET ONE -->
 
-                <div class="subsidiary-logo">
-                    <img src="assets/subsidiary-3.png" alt="Cynosure subsidiary">
-                </div>
+            <div class="subsidiary-card">
 
-                <span>03</span>
+                <img
+                    src="assets/subsidiary-logo-1.png"
+                    alt="Metrospace Construction Company"
+                >
 
-                <h3>
-                    Cynosure Projects
-                </h3>
+            </div>
 
-                <p>
-                    Project coordination and management
-                    from planning through delivery.
-                </p>
 
-                <a href="#contact">Learn More ↗</a>
+            <div class="subsidiary-card">
 
-            </article>
+                <img
+                    src="assets/subsidiary-logo-2.png"
+                    alt="Oasis Engineering Consultancy Limited"
+                >
+
+            </div>
+
+
+            <div class="subsidiary-card">
+
+                <img
+                    src="assets/subsidiary-logo-3.png"
+                    alt="CCL"
+                >
+
+            </div>
+
+
+
+            <!-- SET TWO
+                 DUPLICATED FOR
+                 SEAMLESS LOOP -->
+
+            <div class="subsidiary-card">
+
+                <img
+                    src="assets/subsidiary-logo-1.png"
+                    alt="Metrospace Construction Company"
+                >
+
+            </div>
+
+
+            <div class="subsidiary-card">
+
+                <img
+                    src="assets/subsidiary-logo-2.png"
+                    alt="Oasis Engineering Consultancy Limited"
+                >
+
+            </div>
+
+
+            <div class="subsidiary-card">
+
+                <img
+                    src="assets/subsidiary-logo-3.png"
+                    alt="CCL"
+                >
+
+            </div>
+
 
         </div>
 
@@ -277,55 +417,50 @@
 </section>
 
 
+
 <!-- =====================================================
-     VIDEO TEXT / BRAND STATEMENT
+     CYNOSURE VIDEO TEXT
 ===================================================== -->
 
-<section class="video-text-section">
+<section class="group-showcase">
 
-    <div class="video-text-media">
+    <div class="cynosure-video-text">
 
         <video
+            id="cynosureTextVideo"
             autoplay
             muted
             loop
             playsinline
+            preload="auto"
         >
-            <source src="assets/cynosure.mp4" type="video/mp4">
+
+            <source
+                src="assets/cynosure-text.mp4"
+                type="video/mp4"
+            >
+
         </video>
 
-        <div class="video-text-overlay"></div>
 
-    </div>
-
-    <div class="container video-text-content">
-
-        <span class="section-label">
-            CYNOSURE
-        </span>
-
-        <h2>
-            More than
-            <em>
-                construction.
-            </em>
-        </h2>
-
-        <p>
-            We create spaces, infrastructure and opportunities
-            designed to stand the test of time.
-        </p>
+        <canvas
+            id="cynosureTextCanvas"
+        ></canvas>
 
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
      WHAT WE DO
 ===================================================== -->
 
-<section class="services-section" id="services">
+<section
+    class="services-section"
+    id="services"
+>
 
     <div class="container">
 
@@ -335,14 +470,19 @@
                 WHAT WE DO
             </span>
 
+
             <h2>
-                Expertise that
-                <em>moves projects forward.</em>
+                Construction
+                <em>
+                    without compromise.
+                </em>
             </h2>
 
+
             <p>
-                From early planning to final delivery, our
-                team brings practical expertise to every stage.
+                From planning to completion, we provide
+                professional services built around your
+                project's needs.
             </p>
 
         </div>
@@ -350,31 +490,34 @@
     </div>
 
 
+
     <div class="horizontal-wrapper auto-slider">
 
         <div class="services-track">
 
+
             <article class="service-card">
 
-                <div class="service-image">
-                    <img
-                        src="assets/service-1.jpg"
-                        alt="Building construction"
-                    >
-                </div>
+                <img
+                    src="assets/what-we-do-1.jpg"
+                    alt="Building construction"
+                >
+
+                <div class="card-overlay"></div>
 
                 <div class="service-content">
 
-                    <span>01</span>
+                    <span class="card-number">
+                        01
+                    </span>
 
                     <h3>
                         Building Construction
                     </h3>
 
                     <p>
-                        Reliable construction delivery for
-                        residential, commercial and industrial
-                        projects.
+                        Strong, practical and carefully
+                        executed construction projects.
                     </p>
 
                 </div>
@@ -382,26 +525,29 @@
             </article>
 
 
+
             <article class="service-card">
 
-                <div class="service-image">
-                    <img
-                        src="assets/service-2.jpg"
-                        alt="Renovation and remodeling"
-                    >
-                </div>
+                <img
+                    src="assets/what-we-do-2.jpg"
+                    alt="Renovation and remodeling"
+                >
+
+                <div class="card-overlay"></div>
 
                 <div class="service-content">
 
-                    <span>02</span>
+                    <span class="card-number">
+                        02
+                    </span>
 
                     <h3>
                         Renovation & Remodeling
                     </h3>
 
                     <p>
-                        Thoughtful upgrades that improve
-                        performance, function and appearance.
+                        Transforming existing spaces into
+                        better, more functional environments.
                     </p>
 
                 </div>
@@ -409,58 +555,65 @@
             </article>
 
 
-            <article class="service-card">
-
-                <div class="service-image">
-                    <img
-                        src="assets/service-3.jpg"
-                        alt="Project management"
-                    >
-                </div>
-
-                <div class="service-content">
-
-                    <span>03</span>
-
-                    <h3>
-                        Project Management
-                    </h3>
-
-                    <p>
-                        Coordinated planning, supervision and
-                        execution from start to completion.
-                    </p>
-
-                </div>
-
-            </article>
-
 
             <article class="service-card">
 
-                <div class="service-image">
-                    <img
-                        src="assets/service-4.jpg"
-                        alt="Interior finishing"
-                    >
-                </div>
+                <img
+                    src="assets/what-we-do-3.jpg"
+                    alt="Interior finishing"
+                >
+
+                <div class="card-overlay"></div>
 
                 <div class="service-content">
 
-                    <span>04</span>
+                    <span class="card-number">
+                        03
+                    </span>
 
                     <h3>
                         Interior Finishing
                     </h3>
 
                     <p>
-                        Detail-focused finishing that gives
-                        completed spaces their final character.
+                        Detailed finishing work that gives
+                        every space its final character.
                     </p>
 
                 </div>
 
             </article>
+
+
+
+            <article class="service-card">
+
+                <img
+                    src="assets/what-we-do-4.jpg"
+                    alt="Project management"
+                >
+
+                <div class="card-overlay"></div>
+
+                <div class="service-content">
+
+                    <span class="card-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Project Management
+                    </h3>
+
+                    <p>
+                        Professional coordination from the
+                        first plan to final delivery.
+                    </p>
+
+                </div>
+
+            </article>
+
 
         </div>
 
@@ -469,19 +622,25 @@
 </section>
 
 
+
 <!-- =====================================================
      WHO WE ARE
 ===================================================== -->
 
-<section class="about-section" id="about">
+<section
+    class="about-section"
+    id="about"
+>
 
     <div class="container">
+
 
         <div class="section-intro">
 
             <span class="section-label">
                 WHO WE ARE
             </span>
+
 
             <h2>
                 We build
@@ -490,24 +649,33 @@
                 </em>
             </h2>
 
+
             <p>
                 Cynosure Construction provides dependable
                 construction solutions designed around
                 quality, craftsmanship and long-term value.
             </p>
 
+
             <a
                 href="#contact"
                 class="text-button"
             >
+
                 Work With Us
-                <span>↗</span>
+
+                <span>
+                    ↗
+                </span>
+
             </a>
 
         </div>
 
 
+
         <div class="about-images">
+
 
             <div class="about-image about-image-main">
 
@@ -517,6 +685,7 @@
                 >
 
             </div>
+
 
             <div class="about-image about-image-secondary">
 
@@ -534,6 +703,7 @@
 </section>
 
 
+
 <!-- =====================================================
      STATS
 ===================================================== -->
@@ -541,6 +711,7 @@
 <section class="stats-section">
 
     <div class="container stats-grid">
+
 
         <div class="stat">
 
@@ -594,145 +765,22 @@
 
             <strong
                 class="stat-number"
-                data-target="500"
+                data-target="24"
             >
                 0
             </strong>
 
             <span>
-                Residential Units
+                Trusted Professionals
             </span>
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     TRUSTED BY / MARQUEE
-===================================================== -->
-
-<section class="trusted-section">
-
-    <div class="container">
-
-        <span class="section-label">
-            BUILT ON TRUST
-        </span>
-
-        <div class="trusted-track">
-
-            <span>QUALITY</span>
-            <span>CRAFTSMANSHIP</span>
-            <span>INTEGRITY</span>
-            <span>PRECISION</span>
-            <span>LONG-TERM VALUE</span>
-            <span>QUALITY</span>
-            <span>CRAFTSMANSHIP</span>
-
-        </div>
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
-     WHY CYNOSURE
-===================================================== -->
-
-<section class="why-section">
-
-    <div class="container why-grid">
-
-        <div class="why-intro">
-
-            <span class="section-label">
-                WHY CYNOSURE
-            </span>
-
-            <h2>
-                Built around
-                <em>what matters.</em>
-            </h2>
-
-            <p>
-                We combine dependable execution with
-                thoughtful planning so every project has
-                a clear path from ambition to completion.
-            </p>
-
-        </div>
-
-
-        <div class="why-list">
-
-            <article class="why-item">
-
-                <span>01</span>
-
-                <div>
-                    <h3>Quality First</h3>
-                    <p>
-                        We pay attention to the details that
-                        make a project perform and last.
-                    </p>
-                </div>
-
-            </article>
-
-
-            <article class="why-item">
-
-                <span>02</span>
-
-                <div>
-                    <h3>Clear Communication</h3>
-                    <p>
-                        Clients stay informed throughout
-                        the project journey.
-                    </p>
-                </div>
-
-            </article>
-
-
-            <article class="why-item">
-
-                <span>03</span>
-
-                <div>
-                    <h3>Practical Expertise</h3>
-                    <p>
-                        Our approach balances technical
-                        knowledge with real-world delivery.
-                    </p>
-                </div>
-
-            </article>
-
-
-            <article class="why-item">
-
-                <span>04</span>
-
-                <div>
-                    <h3>Long-Term Value</h3>
-                    <p>
-                        We build with the future use and
-                        performance of every space in mind.
-                    </p>
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- =====================================================
@@ -752,6 +800,7 @@
                 HOW WE WORK
             </span>
 
+
             <h2>
                 From idea
                 <em>
@@ -764,9 +813,11 @@
     </div>
 
 
+
     <div class="horizontal-wrapper auto-slider">
 
         <div class="process-track">
+
 
             <article class="process-card">
 
@@ -795,6 +846,7 @@
                 </div>
 
             </article>
+
 
 
             <article class="process-card">
@@ -826,6 +878,7 @@
             </article>
 
 
+
             <article class="process-card">
 
                 <img
@@ -853,6 +906,7 @@
                 </div>
 
             </article>
+
 
 
             <article class="process-card">
@@ -883,113 +937,13 @@
 
             </article>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
-
-<section class="projects-section" id="projects">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                SELECTED PROJECTS
-            </span>
-
-            <h2>
-                Work that speaks
-                <em>for itself.</em>
-            </h2>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-            <article class="project-card project-large">
-
-                <img
-                    src="assets/project-1.jpg"
-                    alt="Cynosure completed project"
-                >
-
-                <div class="project-overlay">
-
-                    <span>01</span>
-
-                    <h3>
-                        Industrial Development
-                    </h3>
-
-                    <p>
-                        Construction & project delivery
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <img
-                    src="assets/project-2.jpg"
-                    alt="Cynosure construction project"
-                >
-
-                <div class="project-overlay">
-
-                    <span>02</span>
-
-                    <h3>
-                        Commercial Project
-                    </h3>
-
-                    <p>
-                        Construction & finishing
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <img
-                    src="assets/project-3.jpg"
-                    alt="Cynosure development project"
-                >
-
-                <div class="project-overlay">
-
-                    <span>03</span>
-
-                    <h3>
-                        Residential Development
-                    </h3>
-
-                    <p>
-                        Planning & construction
-                    </p>
-
-                </div>
-
-            </article>
 
         </div>
 
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1007,7 +961,9 @@
 
     </div>
 
+
     <div class="action-overlay"></div>
+
 
     <div class="container action-content">
 
@@ -1015,7 +971,9 @@
             CYNOSURE IN ACTION
         </span>
 
+
         <div class="action-line"></div>
+
 
         <h2>
             Building Nigeria's
@@ -1023,6 +981,7 @@
                 future.
             </em>
         </h2>
+
 
         <p>
             From ambitious ideas to completed spaces,
@@ -1035,6 +994,7 @@
 </section>
 
 
+
 <!-- =====================================================
      HOW CAN WE HELP
 ===================================================== -->
@@ -1043,11 +1003,13 @@
 
     <div class="container help-grid">
 
+
         <div class="help-intro">
 
             <span class="section-label">
                 HOW CAN WE HELP?
             </span>
+
 
             <h2>
                 Connecting you with
@@ -1055,6 +1017,7 @@
                     the right expertise.
                 </em>
             </h2>
+
 
             <p>
                 Start with the route that fits your needs.
@@ -1065,20 +1028,26 @@
         </div>
 
 
+
         <div class="help-options">
+
 
             <a
                 href="#contact"
                 class="help-option"
             >
 
-                <span>01</span>
+                <span>
+                    01
+                </span>
 
                 <strong>
                     Discuss a construction project
                 </strong>
 
-                <b>↗</b>
+                <b>
+                    ↗
+                </b>
 
             </a>
 
@@ -1088,13 +1057,17 @@
                 class="help-option"
             >
 
-                <span>02</span>
+                <span>
+                    02
+                </span>
 
                 <strong>
                     Request construction services
                 </strong>
 
-                <b>↗</b>
+                <b>
+                    ↗
+                </b>
 
             </a>
 
@@ -1104,288 +1077,49 @@
                 class="help-option"
             >
 
-                <span>03</span>
+                <span>
+                    03
+                </span>
 
                 <strong>
                     Explore our completed projects
                 </strong>
 
-                <b>↗</b>
+                <b>
+                    ↗
+                </b>
 
             </a>
 
+
+            <!-- TEAM PAGE LATER -->
 
             <a
                 href="team.html"
                 class="help-option"
             >
 
-                <span>04</span>
+                <span>
+                    04
+                </span>
 
                 <strong>
                     Speak with our team
                 </strong>
 
-                <b>↗</b>
+                <b>
+                    ↗
+                </b>
 
             </a>
 
+
         </div>
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
-     OUR BOARD
-===================================================== -->
-
-<section
-    class="board-section"
-    id="board"
->
-
-    <div class="container">
-
-        <div class="board-heading">
-
-            <span class="section-label">
-                OUR BOARD
-            </span>
-
-            <h2>
-                Leadership behind the vision.
-            </h2>
-
-            <p>
-                Experienced leadership guiding Cynosure
-                with purpose, integrity and long-term vision.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="board-slider">
-
-        <div class="board-track">
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-1.jpg"
-                        alt="Engr. Odebunmi Babawale Mutiu"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        ENGR. ODEBUNMI BABAWALE MUTIU
-                    </h3>
-
-                    <span>
-                        Chairman
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-2.jpg"
-                        alt="Olaniyi Toniloba"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        OLANIYI TONILOBA
-                    </h3>
-
-                    <span>
-                        Lead Architect
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-3.jpg"
-                        alt="Yusuf Jubril Olamilekan"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        YUSUF JUBRIL OLAMILEKAN
-                    </h3>
-
-                    <span>
-                        MD
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-4.jpg"
-                        alt="Engr. Ilori Michael"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        ENGR. ILORI MICHAEL
-                    </h3>
-
-                    <span>
-                        Civil Engineer
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <!-- DUPLICATES FOR SEAMLESS SLIDER -->
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-1.jpg"
-                        alt="Engr. Odebunmi Babawale Mutiu"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        ENGR. ODEBUNMI BABAWALE MUTIU
-                    </h3>
-
-                    <span>
-                        Chairman
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-2.jpg"
-                        alt="Olaniyi Toniloba"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        OLANIYI TONILOBA
-                    </h3>
-
-                    <span>
-                        Lead Architect
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-3.jpg"
-                        alt="Yusuf Jubril Olamilekan"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        YUSUF JUBRIL OLAMILEKAN
-                    </h3>
-
-                    <span>
-                        MD
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="board-card">
-
-                <div class="board-image">
-
-                    <img
-                        src="assets/board-4.jpg"
-                        alt="Engr. Ilori Michael"
-                    >
-
-                </div>
-
-                <div class="board-info">
-
-                    <h3>
-                        ENGR. ILORI MICHAEL
-                    </h3>
-
-                    <span>
-                        Civil Engineer
-                    </span>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- =====================================================
@@ -1396,11 +1130,13 @@
 
     <div class="container">
 
+
         <div class="ownership-heading">
 
             <span class="section-label">
                 OWNERSHIP GUIDANCE
             </span>
+
 
             <h2>
                 Understand your options
@@ -1408,6 +1144,7 @@
                     before you commit.
                 </em>
             </h2>
+
 
             <p>
                 Get clear information about construction,
@@ -1418,52 +1155,38 @@
         </div>
 
 
+
         <div class="ownership-cards">
 
-            <a
-                href="#contact"
-                class="ownership-card"
-            >
-
-                <span>01</span>
-
-                <div>
-                    <h3>
-                        Building a New Property
-                    </h3>
-
-                    <p>
-                        Discuss your vision, budget and
-                        construction requirements with our team.
-                    </p>
-                </div>
-
-                <b>↗</b>
-
-            </a>
-
 
             <a
                 href="#contact"
                 class="ownership-card"
             >
 
-                <span>02</span>
-
                 <div>
+
+                    <small>
+                        BUILDING
+                    </small>
+
                     <h3>
-                        Renovating Existing Space
+                        Construction guidance
                     </h3>
 
                     <p>
-                        Explore practical options for improving
-                        and transforming your property.
+                        Understand the key stages involved
+                        in planning and delivering a project.
                     </p>
+
                 </div>
 
-                <b>↗</b>
+                <span>
+                    →
+                </span>
 
             </a>
+
 
 
             <a
@@ -1471,28 +1194,327 @@
                 class="ownership-card"
             >
 
-                <span>03</span>
-
                 <div>
+
+                    <small>
+                        RENOVATION
+                    </small>
+
                     <h3>
-                        Managing a Project
+                        Renovation pathways
                     </h3>
 
                     <p>
-                        Get support coordinating professionals,
-                        timelines and project delivery.
+                        Learn what to consider before
+                        transforming an existing property.
                     </p>
+
                 </div>
 
-                <b>↗</b>
+                <span>
+                    →
+                </span>
 
             </a>
+
+
+
+            <a
+                href="#contact"
+                class="ownership-card"
+            >
+
+                <div>
+
+                    <small>
+                        PROJECT PLANNING
+                    </small>
+
+                    <h3>
+                        Plan your next project
+                    </h3>
+
+                    <p>
+                        Speak with our team about your
+                        requirements, budget and vision.
+                    </p>
+
+                </div>
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+
+        <a
+            href="#contact"
+            class="ownership-button"
+        >
+
+            Explore Your Options
+
+            <span>
+                ↗
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OUR WORK
+===================================================== -->
+
+<section
+    class="projects-section"
+    id="projects"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                OUR WORK
+            </span>
+
+
+            <h2>
+                Projects we're
+                <em>
+                    proud of.
+                </em>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="horizontal-wrapper auto-slider">
+
+        <div class="projects-track">
+
+
+            <article class="project-card">
+
+                <img
+                    src="assets/project-1.jpg"
+                    alt="Modern residence"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        COMPLETED PROJECT
+                    </span>
+
+                    <h3>
+                        Modern Residence
+                    </h3>
+
+                    <p>
+                        Residential Construction
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card">
+
+                <img
+                    src="assets/project-2.jpg"
+                    alt="Commercial space"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        COMPLETED PROJECT
+                    </span>
+
+                    <h3>
+                        Commercial Space
+                    </h3>
+
+                    <p>
+                        Commercial Construction
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card">
+
+                <img
+                    src="assets/project-3.jpg"
+                    alt="Luxury renovation"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        COMPLETED PROJECT
+                    </span>
+
+                    <h3>
+                        Luxury Renovation
+                    </h3>
+
+                    <p>
+                        Renovation & Remodeling
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card">
+
+                <img
+                    src="assets/project-4.jpg"
+                    alt="Executive building"
+                >
+
+                <div class="project-overlay">
+
+                    <span>
+                        COMPLETED PROJECT
+                    </span>
+
+                    <h3>
+                        Executive Building
+                    </h3>
+
+                    <p>
+                        Construction Project
+                    </p>
+
+                </div>
+
+            </article>
+
 
         </div>
 
     </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     WHY CYNOSURE
+===================================================== -->
+
+<section class="why-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                WHY CYNOSURE
+            </span>
+
+
+            <h2>
+                Built on
+                <em>
+                    trust.
+                </em>
+            </h2>
+
+        </div>
+
+
+
+        <div class="why-grid">
+
+
+            <article class="why-card">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Quality First
+                </h3>
+
+                <p>
+                    We focus on quality materials,
+                    skilled workmanship and careful
+                    execution.
+                </p>
+
+            </article>
+
+
+
+            <article class="why-card">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Reliable Service
+                </h3>
+
+                <p>
+                    Clear communication and dependable
+                    project delivery from start to finish.
+                </p>
+
+            </article>
+
+
+
+            <article class="why-card">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Attention to Detail
+                </h3>
+
+                <p>
+                    Every part of the project matters,
+                    from the foundation to the final finish.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
 
 
 <!-- =====================================================
@@ -1506,56 +1528,67 @@
 
     <div class="container">
 
+
         <div class="section-heading">
 
             <span class="section-label">
-                PROJECT GALLERY
+                GALLERY
             </span>
+
 
             <h2>
                 A closer look at
-                <em>our work.</em>
+                <em>
+                    our work.
+                </em>
             </h2>
 
         </div>
 
 
-        <div class="gallery-grid">
 
-            <div class="gallery-item gallery-large">
+        <div class="gallery-box">
+
+
+            <button
+                class="gallery-arrow gallery-prev"
+                id="galleryPrev"
+                type="button"
+                aria-label="Previous photo"
+            >
+                ‹
+            </button>
+
+
+
+            <div class="gallery-image-wrap">
+
                 <img
+                    id="galleryImage"
                     src="assets/gallery-1.jpg"
-                    alt="Cynosure project gallery"
+                    alt="Cynosure Construction gallery"
                 >
+
+                <span
+                    class="gallery-counter"
+                    id="galleryCounter"
+                >
+                    1 / 3
+                </span>
+
             </div>
 
-            <div class="gallery-item">
-                <img
-                    src="assets/gallery-2.jpg"
-                    alt="Cynosure project gallery"
-                >
-            </div>
 
-            <div class="gallery-item">
-                <img
-                    src="assets/gallery-3.jpg"
-                    alt="Cynosure project gallery"
-                >
-            </div>
 
-            <div class="gallery-item">
-                <img
-                    src="assets/gallery-4.jpg"
-                    alt="Cynosure project gallery"
-                >
-            </div>
+            <button
+                class="gallery-arrow gallery-next"
+                id="galleryNext"
+                type="button"
+                aria-label="Next photo"
+            >
+                ›
+            </button>
 
-            <div class="gallery-item gallery-wide">
-                <img
-                    src="assets/gallery-5.jpg"
-                    alt="Cynosure project gallery"
-                >
-            </div>
 
         </div>
 
@@ -1564,8 +1597,9 @@
 </section>
 
 
+
 <!-- =====================================================
-     CONTACT / CONSULTATION
+     CONTACT US
 ===================================================== -->
 
 <section
@@ -1575,33 +1609,68 @@
 
     <div class="container contact-grid">
 
+
         <div class="contact-intro">
 
             <span class="section-label">
-                START A CONVERSATION
+                CONTACT US
             </span>
+
 
             <h2>
                 Let's build
                 <em>
-                    something meaningful.
+                    something great.
                 </em>
             </h2>
 
+
             <p>
-                Tell us about your project and our team
-                will get back to you with the next steps.
+                Tell us about your project, ask a question
+                or speak with our team about your construction
+                needs.
             </p>
 
 
-            <div class="contact-details">
 
-                <a href="mailto:info@cynosureconstruction.com">
-                    info@cynosureconstruction.com
+            <div class="contact-actions">
+
+
+                <!-- REPLACE WITH ACTUAL GOOGLE MAPS
+                     LOCATION LATER -->
+
+                <a
+                    href="https://www.google.com/maps"
+                    target="_blank"
+                    rel="noopener"
+                    class="map-button"
+                >
+
+                    Locate Us on Maps
+
+                    <span>
+                        ↗
+                    </span>
+
                 </a>
 
-                <a href="https://wa.me/2348139688391" target="_blank" rel="noopener">
-                    WhatsApp
+
+                <!-- REPLACE NUMBER WITH
+                     ACTUAL WHATSAPP NUMBER -->
+
+                <a
+                    href="https://wa.me/2340000000000"
+                    target="_blank"
+                    rel="noopener"
+                    class="contact-whatsapp"
+                >
+
+                    Chat on WhatsApp
+
+                    <span>
+                        ↗
+                    </span>
+
                 </a>
 
             </div>
@@ -1609,36 +1678,43 @@
         </div>
 
 
-        <div class="contact-form-wrap">
+
+        <!-- CONTACT FORM -->
+
+        <div class="consultation-box">
+
 
             <form
-                class="contact-form"
-                id="contactForm"
+                class="consultation-form"
+                id="consultationForm"
             >
 
+
                 <div class="form-row">
+
 
                     <div class="form-group">
 
                         <label for="name">
-                            Full Name
+                            Your Name
                         </label>
 
                         <input
                             type="text"
                             id="name"
                             name="name"
-                            placeholder="Enter your full name"
+                            placeholder="Enter your name"
                             required
                         >
 
                     </div>
 
 
+
                     <div class="form-group">
 
                         <label for="phone">
-                            Phone
+                            Phone Number
                         </label>
 
                         <input
@@ -1651,10 +1727,13 @@
 
                     </div>
 
+
                 </div>
 
 
+
                 <div class="form-row">
+
 
                     <div class="form-group">
 
@@ -1670,6 +1749,7 @@
                         >
 
                     </div>
+
 
 
                     <div class="form-group">
@@ -1712,7 +1792,9 @@
 
                     </div>
 
+
                 </div>
+
 
 
                 <div class="form-group">
@@ -1731,6 +1813,7 @@
                 </div>
 
 
+
                 <button
                     type="submit"
                     class="submit-button"
@@ -1745,11 +1828,14 @@
                 </button>
 
 
+
                 <div
                     class="form-success"
                     id="formSuccess"
                     aria-live="polite"
-                ></div>
+                >
+                </div>
+
 
             </form>
 
@@ -1758,6 +1844,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1771,11 +1858,13 @@
 
     <div class="container">
 
+
         <div class="section-heading">
 
             <span class="section-label">
                 TESTIMONIALS
             </span>
+
 
             <h2>
                 What our clients
@@ -1789,9 +1878,11 @@
     </div>
 
 
+
     <div class="horizontal-wrapper auto-slider">
 
         <div class="testimonials-track">
+
 
             <article class="testimonial-card">
 
@@ -1832,6 +1923,7 @@
                 </div>
 
             </article>
+
 
 
             <article class="testimonial-card">
@@ -1875,6 +1967,7 @@
             </article>
 
 
+
             <article class="testimonial-card">
 
                 <div>
@@ -1914,6 +2007,7 @@
 
             </article>
 
+
         </div>
 
     </div>
@@ -1921,7 +2015,9 @@
 </section>
 
 
+
 </main>
+
 
 
 <!-- =====================================================
@@ -1931,6 +2027,7 @@
 <footer class="site-footer">
 
     <div class="container footer-inner">
+
 
         <div class="footer-brand">
 
@@ -1949,6 +2046,7 @@
 
             </a>
 
+
             <p>
                 Quality construction.
                 Trusted results.
@@ -1956,6 +2054,7 @@
             </p>
 
         </div>
+
 
 
         <div class="footer-links">
@@ -1983,9 +2082,12 @@
         </div>
 
 
+
         <p class="copyright">
+
             © 2026 Cynosure Construction.
             All rights reserved.
+
         </p>
 
     </div>
@@ -1993,9 +2095,13 @@
 </footer>
 
 
+
 <!-- =====================================================
-     BACK TO TOP
+     FLOATING ACTION BUTTONS
 ===================================================== -->
+
+
+<!-- BACK TO TOP -->
 
 <button
     class="back-to-top"
@@ -2007,22 +2113,27 @@
 </button>
 
 
-<!-- =====================================================
-     WHATSAPP
-===================================================== -->
+
+<!-- WHATSAPP -->
 
 <a
-    href="https://wa.me/2348139688391"
+    href="https://wa.me/2340000000000"
     class="floating-whatsapp"
     target="_blank"
     rel="noopener"
     aria-label="Chat with Cynosure Construction on WhatsApp"
 >
-    <span>WA</span>
+
+    <span>
+        WA
+    </span>
+
 </a>
+
 
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
