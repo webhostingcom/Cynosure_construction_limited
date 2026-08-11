@@ -3050,3 +3050,423 @@ a {
 .contact-action-button:hover span {
     transform: translate(2px, -2px);
 }
+
+/* =====================================================
+   CONTACT US — PREMIUM REDESIGN
+===================================================== */
+
+.contact-section {
+    position: relative;
+    padding: 140px 0 160px;
+    background: #0b0b09;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   CONTACT HEADING
+===================================================== */
+
+.contact-heading {
+    max-width: 900px;
+    margin-bottom: 70px;
+}
+
+.contact-heading .section-label {
+    display: block;
+    margin-bottom: 22px;
+}
+
+.contact-heading h2 {
+    margin: 0;
+    max-width: 850px;
+}
+
+.contact-heading h2 em {
+    font-style: italic;
+}
+
+
+
+/* =====================================================
+   CONTACT INFORMATION
+===================================================== */
+
+.contact-information {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 120px;
+}
+
+
+.contact-item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 55px 1fr 30px;
+    align-items: center;
+
+    min-height: 125px;
+    padding: 25px 10px 25px 0;
+
+    text-decoration: none;
+    color: inherit;
+
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+
+    transition:
+        background 0.35s ease,
+        padding 0.35s ease;
+}
+
+
+.contact-item:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.12);
+    padding-right: 40px;
+}
+
+
+.contact-item:nth-child(even) {
+    padding-left: 40px;
+}
+
+
+.contact-item:hover {
+    background: rgba(255,255,255,0.035);
+}
+
+
+.contact-item-number {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: #b9a36a;
+}
+
+
+.contact-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.contact-item-content span {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: #b9a36a;
+}
+
+
+.contact-item-content strong {
+    font-size: 17px;
+    font-weight: 500;
+    color: #f4f1e8;
+    word-break: break-word;
+}
+
+
+.contact-item b {
+    font-size: 20px;
+    font-weight: 400;
+    color: #b9a36a;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.contact-item:hover b {
+    transform: translate(4px, -4px);
+}
+
+
+
+/* =====================================================
+   ENQUIRY SECTION
+===================================================== */
+
+.contact-enquiry {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: 80px;
+
+    padding-top: 80px;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.enquiry-heading {
+    padding-top: 10px;
+}
+
+
+.enquiry-heading > span {
+    display: block;
+
+    margin-bottom: 22px;
+
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: #b9a36a;
+}
+
+
+.enquiry-heading h3 {
+    max-width: 400px;
+
+    margin: 0;
+
+    font-size: clamp(34px, 4vw, 60px);
+    line-height: 1.02;
+    font-weight: 500;
+    color: #f4f1e8;
+}
+
+
+.enquiry-heading h3 em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.contact-enquiry .consultation-box {
+    position: relative;
+
+    padding: 45px;
+
+    background: #11110f;
+
+    border: 1px solid rgba(185,163,106,0.28);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,0.35);
+}
+
+
+.contact-enquiry .consultation-form {
+    width: 100%;
+}
+
+
+.contact-enquiry .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+
+.contact-enquiry .form-group {
+    margin-bottom: 28px;
+}
+
+
+.contact-enquiry label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #b9a36a;
+}
+
+
+.contact-enquiry input,
+.contact-enquiry select,
+.contact-enquiry textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 17px 18px;
+
+    background: #0b0b09;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 2px;
+
+    color: #f4f1e8;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.contact-enquiry input::placeholder,
+.contact-enquiry textarea::placeholder {
+    color: rgba(255,255,255,0.35);
+}
+
+
+.contact-enquiry input:focus,
+.contact-enquiry select:focus,
+.contact-enquiry textarea:focus {
+    border-color: #b9a36a;
+    background: #0e0e0c;
+}
+
+
+.contact-enquiry select {
+    cursor: pointer;
+}
+
+
+.contact-enquiry textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.contact-enquiry .submit-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 22px;
+
+    border: 1px solid #b9a36a;
+    border-radius: 2px;
+
+    background: #b9a36a;
+    color: #0b0b09;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.contact-enquiry .submit-button:hover {
+    background: transparent;
+    color: #b9a36a;
+}
+
+
+.contact-enquiry .submit-button span {
+    font-size: 18px;
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .contact-section {
+        padding: 90px 0 110px;
+    }
+
+
+    .contact-heading {
+        margin-bottom: 50px;
+    }
+
+
+    .contact-information {
+        grid-template-columns: 1fr;
+        margin-bottom: 80px;
+    }
+
+
+    .contact-item,
+    .contact-item:nth-child(odd),
+    .contact-item:nth-child(even) {
+        border-right: none;
+        padding: 22px 0;
+    }
+
+
+    .contact-item {
+        min-height: 95px;
+    }
+
+
+    .contact-item-content strong {
+        font-size: 15px;
+    }
+
+
+    .contact-enquiry {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 60px;
+    }
+
+
+    .enquiry-heading h3 {
+        max-width: 500px;
+        font-size: 38px;
+    }
+
+
+    .contact-enquiry .consultation-box {
+        padding: 25px 20px;
+    }
+
+
+    .contact-enquiry .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .contact-item {
+        grid-template-columns: 40px 1fr 25px;
+    }
+
+
+    .contact-item-content strong {
+        font-size: 14px;
+    }
+
+
+    .contact-item-number {
+        font-size: 9px;
+    }
+
+
+    .contact-enquiry .consultation-box {
+        padding: 22px 16px;
+    }
+
+}
