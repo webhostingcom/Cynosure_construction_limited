@@ -3985,3 +3985,330 @@ VERY SMALL PHONES
 }
 
 }
+
+/* =====================================================
+   CYNOSURE — PREMIUM ENQUIRY FORM
+===================================================== */
+
+.consultation-box {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+
+    padding: 46px 42px;
+
+    background: #111210;
+
+    border: 1px solid rgba(211, 174, 91, 0.55);
+    border-radius: 34px;
+
+    box-shadow:
+        0 0 0 1px rgba(211, 174, 91, 0.08),
+        0 0 28px rgba(211, 174, 91, 0.18),
+        0 0 65px rgba(211, 174, 91, 0.08);
+
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+/* FORM */
+
+.consultation-form {
+    width: 100%;
+}
+
+
+/* FIELD GROUP */
+
+.consultation-form .form-group {
+    width: 100%;
+    margin-bottom: 27px;
+}
+
+
+/* LABEL */
+
+.consultation-form .form-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #d7bd7d;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* INPUTS / SELECT / TEXTAREA */
+
+.consultation-form input,
+.consultation-form select,
+.consultation-form textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #090a09;
+
+    color: #f2f0e9;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 9px;
+
+    padding: 17px 18px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* INPUT HEIGHT */
+
+.consultation-form input,
+.consultation-form select {
+    min-height: 56px;
+}
+
+
+/* TEXTAREA */
+
+.consultation-form textarea {
+    min-height: 175px;
+
+    resize: vertical;
+}
+
+
+/* PLACEHOLDER */
+
+.consultation-form input::placeholder,
+.consultation-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.34);
+}
+
+
+/* SELECT */
+
+.consultation-form select {
+    appearance: auto;
+    cursor: pointer;
+}
+
+
+/* FOCUS */
+
+.consultation-form input:focus,
+.consultation-form select:focus,
+.consultation-form textarea:focus {
+
+    border-color: rgba(211, 174, 91, 0.8);
+
+    box-shadow:
+        0 0 0 3px rgba(211, 174, 91, 0.08),
+        0 0 18px rgba(211, 174, 91, 0.12);
+
+    background: #0b0c0b;
+}
+
+
+/* TWO-COLUMN ROW */
+
+.consultation-form .form-row {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* SEND ENQUIRY BUTTON */
+
+.consultation-form .submit-button {
+
+    width: 100%;
+
+    min-height: 64px;
+
+    margin-top: 7px;
+
+    padding: 16px 28px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: #d8b45f;
+
+    color: #11110e;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.28),
+        0 0 22px rgba(211, 174, 91, 0.12);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* BUTTON ARROW */
+
+.consultation-form .submit-button span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+
+/* BUTTON HOVER */
+
+.consultation-form .submit-button:hover {
+
+    background: #e1c274;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35),
+        0 0 28px rgba(211, 174, 91, 0.22);
+}
+
+
+/* BUTTON PRESS */
+
+.consultation-form .submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* SUCCESS MESSAGE */
+
+.consultation-form .form-success {
+    margin-top: 18px;
+
+    color: #d8b45f;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .consultation-box {
+
+        max-width: none;
+
+        padding: 38px 28px;
+
+        border-radius: 30px;
+
+        box-shadow:
+            0 0 0 1px rgba(211, 174, 91, 0.07),
+            0 0 25px rgba(211, 174, 91, 0.16),
+            0 0 55px rgba(211, 174, 91, 0.07);
+    }
+
+
+    .consultation-form .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    .consultation-form .form-group {
+
+        margin-bottom: 25px;
+    }
+
+
+    .consultation-form input,
+    .consultation-form select {
+
+        min-height: 58px;
+
+        padding: 17px 18px;
+    }
+
+
+    .consultation-form textarea {
+
+        min-height: 170px;
+    }
+
+
+    .consultation-form .submit-button {
+
+        min-height: 62px;
+
+        border-radius: 999px;
+    }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .consultation-box {
+
+        padding: 34px 22px;
+
+        border-radius: 27px;
+    }
+
+
+    .consultation-form .form-group label {
+
+        font-size: 13px;
+    }
+
+
+    .consultation-form input,
+    .consultation-form select,
+    .consultation-form textarea {
+
+        font-size: 14px;
+    }
+}
