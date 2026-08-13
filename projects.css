@@ -1,7 +1,7 @@
 /* =====================================================
    CYNOSURE CONSTRUCTION
    PROJECTS PAGE
-   DEEP BLUE PREMIUM DESIGN
+   PREMIUM GOLD + BLACK DESIGN
 ===================================================== */
 
 
@@ -24,15 +24,15 @@
     background:
         radial-gradient(
             circle at 75% 35%,
-            rgba(47, 128, 237, .18),
+            rgba(201, 164, 92, .14),
             transparent 38%
         ),
         radial-gradient(
             circle at 15% 70%,
-            rgba(23, 78, 166, .16),
+            rgba(201, 164, 92, .07),
             transparent 42%
         ),
-        #071426;
+        #050505;
 }
 
 .projects-hero-glow {
@@ -48,9 +48,9 @@
 
     border-radius: 50%;
 
-    background: rgba(47, 128, 237, .08);
+    background: rgba(201, 164, 92, .08);
 
-    filter: blur(80px);
+    filter: blur(90px);
 
     pointer-events: none;
 }
@@ -63,14 +63,14 @@
 .projects-label {
     display: inline-block;
 
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
     font-size: 10px;
     font-weight: 700;
 
     letter-spacing: .25em;
 
-    text-shadow: var(--blue-glow);
+    text-shadow: var(--gold-glow);
 }
 
 .projects-page-hero h1 {
@@ -84,17 +84,17 @@
 
     letter-spacing: -.055em;
 
-    color: #eaf3fa;
+    color: #f5f1e8;
 }
 
 .projects-page-hero h1 em {
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
     font-style: italic;
 
     text-shadow:
-        0 0 12px rgba(96, 165, 250, .5),
-        0 0 35px rgba(47, 128, 237, .25);
+        0 0 12px rgba(216, 182, 109, .45),
+        0 0 35px rgba(201, 164, 92, .20);
 }
 
 .projects-page-hero p {
@@ -102,7 +102,7 @@
 
     margin-top: 25px;
 
-    color: #aebdce;
+    color: rgba(255,255,255,.62);
 
     font-size: 14px;
 
@@ -124,10 +124,10 @@
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(47, 128, 237, .08),
+            rgba(201, 164, 92, .07),
             transparent 45%
         ),
-        #08182b;
+        #070707;
 }
 
 .projects-page-heading {
@@ -137,9 +137,9 @@
 }
 
 .projects-page-heading .section-label {
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
-    text-shadow: var(--blue-glow);
+    text-shadow: var(--gold-glow);
 }
 
 .projects-page-heading h2 {
@@ -151,15 +151,15 @@
 
     letter-spacing: -.045em;
 
-    color: #eaf3fa;
+    color: #f5f1e8;
 }
 
 .projects-page-heading h2 em {
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
     font-style: italic;
 
-    text-shadow: var(--blue-glow);
+    text-shadow: var(--gold-glow);
 }
 
 .projects-page-heading p {
@@ -167,7 +167,7 @@
 
     margin-top: 20px;
 
-    color: #9fb0c2;
+    color: rgba(255,255,255,.55);
 
     font-size: 13px;
 
@@ -200,15 +200,15 @@
 
     overflow: hidden;
 
-    border: 1px solid rgba(80, 160, 255, .22);
+    border: 1px solid rgba(201, 164, 92, .20);
 
     border-radius: 10px 42px 10px 42px;
 
-    background: #0b1c30;
+    background: #0b0b0b;
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, .35),
-        0 0 20px rgba(47, 128, 237, .05);
+        0 20px 60px rgba(0, 0, 0, .45),
+        0 0 20px rgba(201, 164, 92, .035);
 
     isolation: isolate;
 
@@ -221,11 +221,11 @@
 .project-page-card:hover {
     transform: translateY(-7px);
 
-    border-color: rgba(96, 165, 250, .75);
+    border-color: rgba(216, 182, 109, .65);
 
     box-shadow:
-        0 25px 70px rgba(0, 0, 0, .45),
-        var(--blue-glow-strong);
+        0 25px 70px rgba(0, 0, 0, .55),
+        var(--gold-glow-strong);
 }
 
 
@@ -275,7 +275,9 @@
 .project-page-card:hover .project-page-image img {
     transform: scale(1.06);
 
-    filter: saturate(1.05);
+    filter:
+        saturate(.85)
+        contrast(1.05);
 }
 
 
@@ -293,9 +295,9 @@
     background:
         linear-gradient(
             0deg,
-            rgba(3, 13, 25, .96),
-            rgba(3, 13, 25, .55) 38%,
-            rgba(3, 13, 25, .08) 78%
+            rgba(3, 3, 3, .97),
+            rgba(3, 3, 3, .62) 38%,
+            rgba(3, 3, 3, .10) 78%
         );
 }
 
@@ -315,20 +317,20 @@
 }
 
 .project-page-content span {
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
     font-size: 9px;
     font-weight: 700;
 
     letter-spacing: .2em;
 
-    text-shadow: var(--blue-glow);
+    text-shadow: var(--gold-glow);
 }
 
 .project-page-content h3 {
     margin-top: 9px;
 
-    color: #f1f7fc;
+    color: #f5f1e8;
 
     font-size: clamp(25px, 3vw, 35px);
 
@@ -342,7 +344,7 @@
 
     margin-top: 11px;
 
-    color: #b4c2d0;
+    color: rgba(255,255,255,.62);
 
     font-size: 11px;
 
@@ -360,10 +362,10 @@
     background:
         radial-gradient(
             circle at center,
-            rgba(47, 128, 237, .14),
+            rgba(201, 164, 92, .11),
             transparent 45%
         ),
-        #061224;
+        #050505;
 }
 
 .projects-cta-box {
@@ -375,36 +377,36 @@
 
     text-align: center;
 
-    border: 1px solid rgba(80, 160, 255, .28);
+    border: 1px solid rgba(201, 164, 92, .25);
 
     border-radius: 12px 50px 12px 50px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(20, 52, 86, .72),
-            rgba(7, 23, 42, .88)
+            rgba(35, 29, 18, .78),
+            rgba(10, 10, 10, .94)
         );
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, .4),
-        0 0 35px rgba(47, 128, 237, .08);
+        0 25px 80px rgba(0, 0, 0, .5),
+        0 0 35px rgba(201, 164, 92, .07);
 }
 
 .projects-cta-box .section-label {
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
     font-size: 9px;
 
     letter-spacing: .22em;
 
-    text-shadow: var(--blue-glow);
+    text-shadow: var(--gold-glow);
 }
 
 .projects-cta-box h2 {
     margin-top: 15px;
 
-    color: #eaf3fa;
+    color: #f5f1e8;
 
     font-size: clamp(38px, 5vw, 60px);
 
@@ -414,11 +416,11 @@
 }
 
 .projects-cta-box h2 em {
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
     font-style: italic;
 
-    text-shadow: var(--blue-glow);
+    text-shadow: var(--gold-glow);
 }
 
 .projects-cta-box p {
@@ -426,7 +428,7 @@
 
     margin: 20px auto 30px;
 
-    color: #aab9c8;
+    color: rgba(255,255,255,.58);
 
     font-size: 13px;
 
@@ -438,15 +440,26 @@
 
     gap: 12px;
 
-    background: var(--blue);
+    background: var(--gold, #c9a45c);
 
-    color: #06101d;
+    color: #080808;
+
+    border: 1px solid var(--gold, #c9a45c);
+
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .projects-cta-box .primary-button:hover {
-    background: var(--blue-light);
+    background: var(--gold-light, #d8b66d);
 
-    box-shadow: var(--blue-glow-strong);
+    color: #050505;
+
+    box-shadow: var(--gold-glow-strong);
+
+    transform: translateY(-2px);
 }
 
 
@@ -455,10 +468,10 @@
 ===================================================== */
 
 .main-nav a.active {
-    color: var(--blue-light);
+    color: var(--gold-light, #d8b66d);
 
     text-shadow:
-        0 0 12px rgba(96, 165, 250, .35);
+        0 0 12px rgba(216, 182, 109, .35);
 }
 
 .main-nav a.active::after {
