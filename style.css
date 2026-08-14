@@ -12384,24 +12384,26 @@ color: #d8c28a;
    PARTNER TRACK
 ===================================================== */
 
+.partners-section {
+    overflow: hidden;
+}
+
 .partners-track {
-    position: relative;
-
-    z-index: 2;
-
     display: flex;
-
     gap: 22px;
-
     width: max-content;
 
-    overflow: visible;
-
-    padding: 12px 4px 25px;
-
     animation: partners-scroll 28s linear infinite;
+}
 
-    scrollbar-width: none;
+@keyframes partners-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 11px));
+    }
 }
 
 .partners-track::-webkit-scrollbar {
