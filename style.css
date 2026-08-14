@@ -12395,17 +12395,13 @@ color: #d8c28a;
 
     width: max-content;
 
-    overflow-x: auto;
-
-    overflow-y: hidden;
+    overflow: visible;
 
     padding: 12px 4px 25px;
 
-    scroll-behavior: smooth;
+    animation: partners-scroll 28s linear infinite;
 
     scrollbar-width: none;
-
-   animation: partners-scroll 28s linear infinite;
 }
 
 .partners-track::-webkit-scrollbar {
