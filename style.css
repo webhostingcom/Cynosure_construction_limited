@@ -12390,10 +12390,15 @@ color: #d8c28a;
 
 .partners-track {
     display: flex;
-    gap: 22px;
     width: max-content;
+    animation: partners-scroll 20s linear infinite;
+}
 
-    animation: partners-scroll 28s linear infinite;
+.partners-group {
+    display: flex;
+    gap: 22px;
+    flex-shrink: 0;
+    padding-right: 22px;
 }
 
 @keyframes partners-scroll {
@@ -12402,14 +12407,9 @@ color: #d8c28a;
     }
 
     to {
-        transform: translateX(calc(-50% - 11px));
+        transform: translateX(-50%);
     }
 }
-
-.partners-track::-webkit-scrollbar {
-    display: none;
-}
-
 
 /* =====================================================
    PARTNER CARD
