@@ -12262,57 +12262,22 @@ color: #d8c28a;
 }
 
 /* =====================================================
-   CYNOSURE CONSTRUCTION
-   PARTNERS / CLIENTS SECTION
-   GOLD + BLACK PREMIUM DESIGN
+   Partners
 ===================================================== */
 
-
-/* =====================================================
-   PARTNERS SECTION
-===================================================== */
-
-.partners-section {
+.subsidiaries-section {
     position: relative;
-
-    padding: 110px 0 120px;
+    padding: 110px 0;
 
     overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 50% 20%,
-            rgba(201, 164, 92, .055),
-            transparent 42%
+            circle at 50% 0%,
+            rgba(201, 164, 92, .08),
+            transparent 45%
         ),
-        #080a09;
-}
-
-
-/* =====================================================
-   SUBTLE GOLD ATMOSPHERE
-===================================================== */
-
-.partners-section::before {
-    content: "";
-
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    top: -260px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background: rgba(201, 164, 92, .035);
-
-    filter: blur(80px);
-
-    pointer-events: none;
+        #05090f;
 }
 
 
@@ -12320,59 +12285,42 @@ color: #d8c28a;
    HEADING
 ===================================================== */
 
-.partners-heading {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 720px;
-
+.subsidiaries-heading {
+    max-width: 700px;
     margin-bottom: 55px;
 }
 
-.partners-heading .section-label {
-    display: inline-block;
-
-    color: var(--gold-light);
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: .28em;
-
+.subsidiaries-heading .section-label {
+    color: var(--gold);
     text-shadow: var(--gold-glow);
 }
 
-.partners-heading h2 {
-    margin-top: 15px;
+.subsidiaries-heading h2 {
+    margin-top: 14px;
 
-    max-width: 700px;
-
-    color: #f4f1e9;
+    color: #f5f1e8;
 
     font-size: clamp(38px, 5vw, 62px);
 
-    line-height: .98;
+    line-height: 1;
 
     letter-spacing: -.045em;
 }
 
-.partners-heading h2 em {
+.subsidiaries-heading h2 em {
     color: var(--gold-light);
 
     font-style: italic;
 
-    text-shadow:
-        0 0 12px rgba(201, 164, 92, .4),
-        0 0 35px rgba(201, 164, 92, .12);
+    text-shadow: var(--gold-glow);
 }
 
-.partners-heading p {
-    max-width: 570px;
+.subsidiaries-heading p {
+    max-width: 590px;
 
     margin-top: 20px;
 
-    color: #a9aaa5;
+    color: #9da7b3;
 
     font-size: 13px;
 
@@ -12381,137 +12329,95 @@ color: #d8c28a;
 
 
 /* =====================================================
-   PARTNER TRACK
+   SLIDER
 ===================================================== */
 
-.partners-section {
+.subsidiaries-slider {
+    width: 100%;
+
     overflow: hidden;
 }
 
-.partners-track {
+
+/* =====================================================
+   MOVING TRACK
+===================================================== */
+
+.subsidiaries-track {
     display: flex;
+
     width: max-content;
-    animation: partners-scroll 20s linear infinite;
+
+    animation:
+        subsidiaries-scroll
+        22s
+        linear
+        infinite;
+
+    will-change: transform;
 }
 
-.partners-group {
+
+/* =====================================================
+   EACH LOGO GROUP
+===================================================== */
+
+.subsidiaries-group {
     display: flex;
+
     gap: 22px;
+
     flex-shrink: 0;
+
     padding-right: 22px;
 }
 
-@keyframes partners-scroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
 
 /* =====================================================
-   PARTNER CARD
-   SHORT / WIDE / RECTANGULAR
+   LOGO CARD
 ===================================================== */
 
-.partner-card {
-    position: relative;
+.subsidiary-card {
+    width: 240px;
+    height: 125px;
 
-    flex: 0 0 360px;
-
-    height: 185px;
+    flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    padding: 16px;
+    padding: 18px 25px;
 
-    border: 1px solid rgba(201, 164, 92, .22);
+    border: 1px solid rgba(201, 164, 92, .24);
 
-    border-radius: 12px 42px 12px 42px;
+    border-radius: 8px 28px 8px 28px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(20, 20, 17, .96),
-            rgba(8, 9, 8, .98)
+            rgba(24, 28, 34, .95),
+            rgba(8, 12, 17, .98)
         );
 
     box-shadow:
-        inset 0 0 30px rgba(201, 164, 92, .025),
-        0 18px 45px rgba(0, 0, 0, .35);
+        0 18px 45px rgba(0, 0, 0, .35),
+        0 0 20px rgba(201, 164, 92, .04);
 
     transition:
-        transform .4s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-
-    overflow: hidden;
+        border-color .35s ease,
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
+.subsidiary-card:hover {
+    transform: translateY(-4px);
 
-/* =====================================================
-   CARD GOLD EDGE
-===================================================== */
-
-.partner-card::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: inherit;
-
-    border: 1px solid rgba(201, 164, 92, .07);
-
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   CARD HOVER
-===================================================== */
-
-.partner-card:hover {
-    transform: translateY(-5px);
-
-    border-color: rgba(201, 164, 92, .58);
+    border-color: rgba(201, 164, 92, .65);
 
     box-shadow:
-        0 22px 55px rgba(0, 0, 0, .48),
-        0 0 25px rgba(201, 164, 92, .08);
-}
-
-
-/* =====================================================
-   LOGO BOX
-===================================================== */
-
-.partner-logo-box {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 18px 28px;
-
-    border-radius: 8px 30px 8px 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, .018),
-            rgba(255, 255, 255, .006)
-        );
+        0 20px 55px rgba(0, 0, 0, .45),
+        var(--gold-glow);
 }
 
 
@@ -12519,41 +12425,35 @@ color: #d8c28a;
    LOGO
 ===================================================== */
 
-.partner-logo-box img {
+.subsidiary-card img {
     display: block;
 
     width: 100%;
     height: 100%;
 
-    max-width: 100%;
-    max-height: 100%;
-
     object-fit: contain;
 
     object-position: center;
 
-    filter:
-        drop-shadow(
-            0 0 10px rgba(201, 164, 92, .05)
-        );
-
-    transition:
-        transform .4s ease,
-        filter .4s ease;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
 /* =====================================================
-   LOGO HOVER
+   SEAMLESS AUTO LOOP
 ===================================================== */
 
-.partner-card:hover .partner-logo-box img {
-    transform: scale(1.04);
+@keyframes subsidiaries-scroll {
 
-    filter:
-        drop-shadow(
-            0 0 15px rgba(201, 164, 92, .16)
-        );
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
 }
 
 
@@ -12563,39 +12463,30 @@ color: #d8c28a;
 
 @media (max-width: 800px) {
 
-    .partners-section {
-        padding: 85px 0 95px;
+    .subsidiaries-section {
+        padding: 85px 0;
     }
 
-    .partners-heading {
+    .subsidiaries-heading {
         margin-bottom: 40px;
     }
 
-    .partners-heading h2 {
-        font-size: 42px;
-    }
+    .subsidiary-card {
+        width: 205px;
+        height: 110px;
 
-    .partners-track {
-        gap: 16px;
-
-        margin-right: -20px;
-
-        padding-right: 20px;
-    }
-
-    .partner-card {
-        flex: 0 0 310px;
-
-        height: 160px;
-
-        border-radius: 10px 32px 10px 32px;
-    }
-
-    .partner-logo-box {
         padding: 16px 22px;
-
-        border-radius: 7px 24px 7px 24px;
     }
+
+    .subsidiaries-group {
+        gap: 16px;
+        padding-right: 16px;
+    }
+
+    .subsidiaries-track {
+        animation-duration: 19s;
+    }
+
 }
 
 
@@ -12605,45 +12496,20 @@ color: #d8c28a;
 
 @media (max-width: 480px) {
 
-    .partners-section {
-        padding: 75px 0 85px;
-    }
+    .subsidiary-card {
+        width: 180px;
+        height: 100px;
 
-    .partners-heading h2 {
-        font-size: 36px;
-    }
-
-    .partners-heading p {
-        font-size: 12px;
-    }
-
-    .partner-card {
-        flex: 0 0 280px;
-
-        height: 145px;
-
-        padding: 12px;
-
-        border-radius: 9px 28px 9px 28px;
-    }
-
-    .partner-logo-box {
         padding: 14px 18px;
-
-        border-radius: 6px 21px 6px 21px;
-    }
-}
-
-@keyframes partners-scroll {
-    from {
-        transform: translateX(0);
     }
 
-    to {
-        transform: translateX(calc(-50% - 11px));
+    .subsidiaries-group {
+        gap: 14px;
+        padding-right: 14px;
     }
-}
 
-.partners-track:hover {
-    animation-play-state: paused;
+    .subsidiaries-track {
+        animation-duration: 17s;
+    }
+
 }
