@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Factory Construction | Cynosure</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         PROJECT 3
+         FACTORY CONSTRUCTION
+    ====================================================== -->
+
+    <main class="project-page">
+
+        <section class="project-detail-section">
+
+            <div class="container">
+
+                <!-- BACK -->
+
+                <a
+                    href="index.html#projects"
+                    class="project-back"
+                >
+                    ← Back to Projects
+                </a>
+
+
+                <!-- PROJECT HEADING -->
+
+                <div class="project-detail-heading">
+
+                    <span class="section-label">
+                        INDUSTRIAL • FACTORY CONSTRUCTION
+                    </span>
+
+                    <h1>
+                        Factory Construction
+                    </h1>
+
+                    <p>
+                        An industrial construction project
+                        focused on strong structural planning,
+                        functionality and efficient project
+                        execution.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     PHOTO VIEWER
+                ================================================== -->
+
+                <div class="project-photo-viewer">
+
+                    <!-- PREVIOUS -->
+
+                    <button
+                        type="button"
+                        class="project-photo-arrow project-photo-prev"
+                        id="projectPrev"
+                        aria-label="Previous project picture"
+                    >
+                        ‹
+                    </button>
+
+
+                    <!-- PICTURE -->
+
+                    <div class="project-photo-container">
+
+                        <img
+                            id="projectPhoto"
+                            src="assets/pp3pic1.jpg"
+                            alt="Factory Construction - Picture 1"
+                        >
+
+                        <div class="project-photo-counter">
+
+                            <span id="projectCurrent">
+                                1
+                            </span>
+
+                            <span>
+                                /
+                            </span>
+
+                            <span>
+                                5
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NEXT -->
+
+                    <button
+                        type="button"
+                        class="project-photo-arrow project-photo-next"
+                        id="projectNext"
+                        aria-label="Next project picture"
+                    >
+                        ›
+                    </button>
+
+                </div>
+
+
+                <!-- PROJECT INFORMATION -->
+
+                <div class="project-detail-info">
+
+                    <span class="section-label">
+                        PROJECT OVERVIEW
+                    </span>
+
+                    <h2>
+                        Factory Construction
+                    </h2>
+
+                    <p>
+                        This industrial project reflects
+                        Cynosure's commitment to delivering
+                        carefully planned construction solutions
+                        with attention to structural requirements,
+                        functionality and quality.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         PROJECT PHOTO JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const projectPhotos = [
+
+            "assets/pp3pic1.jpg",
+            "assets/pp3pic2.jpg",
+            "assets/pp3pic3.jpg",
+            "assets/pp3pic4.jpg",
+            "assets/pp3pic5.jpg"
+
+        ];
+
+
+        let currentPhoto = 0;
+
+
+        const projectPhoto =
+            document.getElementById("projectPhoto");
+
+        const projectCurrent =
+            document.getElementById("projectCurrent");
+
+        const projectPrev =
+            document.getElementById("projectPrev");
+
+        const projectNext =
+            document.getElementById("projectNext");
+
+
+        function updateProjectPhoto() {
+
+            projectPhoto.src =
+                projectPhotos[currentPhoto];
+
+            projectPhoto.alt =
+                "Factory Construction - Picture " +
+                (currentPhoto + 1);
+
+            projectCurrent.textContent =
+                currentPhoto + 1;
+
+        }
+
+
+        /* NEXT PICTURE */
+
+        projectNext.addEventListener(
+            "click",
+            () => {
+
+                currentPhoto++;
+
+                if (
+                    currentPhoto >=
+                    projectPhotos.length
+                ) {
+
+                    currentPhoto = 0;
+
+                }
+
+                updateProjectPhoto();
+
+            }
+        );
+
+
+        /* PREVIOUS PICTURE */
+
+        projectPrev.addEventListener(
+            "click",
+            () => {
+
+                currentPhoto--;
+
+                if (currentPhoto < 0) {
+
+                    currentPhoto =
+                        projectPhotos.length - 1;
+
+                }
+
+                updateProjectPhoto();
+
+            }
+        );
+
+
+        /* KEYBOARD ARROWS */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+
+                    projectNext.click();
+
+                }
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+
+                    projectPrev.click();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
