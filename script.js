@@ -1248,3 +1248,20 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+document
+    .querySelectorAll(".project-card")
+    .forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const destination =
+                card.getAttribute("href");
+
+            if (destination) {
+                window.location.href = destination;
+            }
+
+        });
+
+    });
