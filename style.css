@@ -326,7 +326,7 @@ a {
 }
 
 /* =====================================================
-   HERO — BUILDING WHAT'S NEXT
+   HERO — FLOATING PREMIUM CARD
 ===================================================== */
 
 .hero {
@@ -340,23 +340,21 @@ a {
     border-radius: 28px;
     overflow: hidden;
 
-    border: 1px solid rgba(212, 175, 55, .72);
+    border: 1px solid rgba(212, 175, 55, 0.72);
 
     background: #0b0c0c;
 
     box-shadow:
-        0 0 0 1px rgba(212, 175, 55, .12),
-        0 0 16px rgba(212, 175, 55, .30),
-        0 0 38px rgba(212, 175, 55, .16),
-        0 22px 55px rgba(0, 0, 0, .58);
+        0 0 0 1px rgba(212, 175, 55, 0.12),
+        0 0 16px rgba(212, 175, 55, 0.30),
+        0 0 38px rgba(212, 175, 55, 0.16),
+        0 22px 55px rgba(0, 0, 0, 0.58);
 
     isolation: isolate;
 }
 
 
-/* =====================================================
-   HERO MEDIA
-===================================================== */
+/* VIDEO */
 
 .hero-media {
     position: absolute;
@@ -372,16 +370,10 @@ a {
     height: 100%;
 
     object-fit: cover;
-
-    transform: scale(1.025);
-
-    animation: heroVideoDrift 16s ease-in-out infinite alternate;
 }
 
 
-/* =====================================================
-   CINEMATIC OVERLAY
-===================================================== */
+/* CINEMATIC OVERLAY */
 
 .hero-overlay {
     position: absolute;
@@ -390,48 +382,21 @@ a {
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, .82) 0%,
-            rgba(0, 0, 0, .60) 38%,
-            rgba(0, 0, 0, .28) 72%,
-            rgba(0, 0, 0, .22) 100%
+            rgba(0, 0, 0, .72) 0%,
+            rgba(0, 0, 0, .38) 50%,
+            rgba(0, 0, 0, .20) 100%
         ),
         linear-gradient(
             0deg,
-            rgba(0, 0, 0, .72) 0%,
-            rgba(0, 0, 0, .08) 65%,
-            rgba(0, 0, 0, .25) 100%
+            rgba(0, 0, 0, .58),
+            transparent 55%
         );
 
     pointer-events: none;
 }
 
 
-/* =====================================================
-   SUBTLE GOLD ATMOSPHERE
-===================================================== */
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 12% 70%,
-            rgba(212, 175, 55, .09),
-            transparent 32%
-        );
-
-    pointer-events: none;
-
-    z-index: 1;
-}
-
-
-/* =====================================================
-   HERO CONTENT
-===================================================== */
+/* CONTENT */
 
 .hero-content {
     position: relative;
@@ -445,106 +410,73 @@ a {
     justify-content: center;
 
     padding: 70px;
-
-    animation: heroContentReveal 1s ease both;
 }
 
 
-/* =====================================================
-   EYEBROW
-===================================================== */
+/* HERO TEXT */
 
 .hero-eyebrow {
-    color: var(--gold-light);
+    color: #d4af37;
 
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: .20em;
-    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: .16em;
 
     text-shadow:
         0 0 8px rgba(212, 175, 55, .55),
         0 0 20px rgba(212, 175, 55, .22);
 }
 
-
-/* =====================================================
-   HERO HEADLINE
-===================================================== */
-
 .hero-content h1 {
-    max-width: 820px;
+    max-width: 760px;
 
     margin-top: 14px;
 
-    font-size: clamp(52px, 6.4vw, 82px);
-
-    line-height: .96;
-
-    letter-spacing: -.05em;
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: .98;
+    letter-spacing: -.045em;
 
     color: #f4f1e8;
 
     text-shadow:
-        0 0 20px rgba(255, 255, 255, .08),
-        0 0 35px rgba(212, 175, 55, .10);
+        0 0 20px rgba(255,255,255,.08),
+        0 0 35px rgba(212,175,55,.10);
 }
 
 .hero-content h1 em {
-    display: block;
-
-    margin-top: 5px;
-
-    color: var(--gold-light);
-
-    font-style: normal;
+    color: #d4af37;
+    font-style: italic;
 
     text-shadow:
-        0 0 10px rgba(212, 175, 55, .55),
-        0 0 28px rgba(212, 175, 55, .28);
+        0 0 10px rgba(212,175,55,.55),
+        0 0 28px rgba(212,175,55,.28);
 }
 
-
-/* =====================================================
-   SUPPORTING DESCRIPTION
-===================================================== */
-
 .hero-content > p {
-    max-width: 610px;
+    max-width: 600px;
 
-    margin-top: 22px;
+    margin-top: 20px;
 
     color: #d0cdc5;
 
     font-size: 14px;
-
     line-height: 1.8;
-
-    letter-spacing: .01em;
 }
 
 
 /* =====================================================
-   HERO ACTIONS
+   HERO BUTTONS
 ===================================================== */
 
 .hero-actions {
     display: flex;
     align-items: center;
-
     gap: 14px;
 
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
-
-/* =====================================================
-   BUTTON BASE
-===================================================== */
-
-.hero-actions .primary-button,
-.hero-actions .secondary-button {
+.primary-button,
+.secondary-button {
     min-height: 50px;
 
     display: inline-flex;
@@ -555,12 +487,9 @@ a {
 
     border-radius: 50px;
 
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-
-    letter-spacing: .08em;
-
-    text-transform: uppercase;
+    letter-spacing: .05em;
 
     cursor: pointer;
 
@@ -568,35 +497,23 @@ a {
         transform .3s ease,
         box-shadow .3s ease,
         background .3s ease,
-        border-color .3s ease,
-        color .3s ease;
+        border-color .3s ease;
 }
 
 
-/* =====================================================
-   PRIMARY — START A PROJECT
-===================================================== */
+/* GOLD BUTTON */
 
-.hero-actions .primary-button {
+.primary-button {
     background: var(--gold);
-
     color: #080909;
 
     box-shadow:
-        0 0 10px rgba(201, 164, 92, .28),
-        0 0 25px rgba(201, 164, 92, .12);
+        0 0 10px rgba(201,164,92,.28),
+        0 0 25px rgba(201,164,92,.12);
 }
 
-.hero-actions .primary-button span {
-    margin-left: 9px;
-
-    font-size: 15px;
-
-    transition: transform .3s ease;
-}
-
-.hero-actions .primary-button:hover,
-.hero-actions .primary-button:active {
+.primary-button:hover,
+.primary-button:active {
     background: var(--gold-light);
 
     transform: translateY(-3px);
@@ -604,27 +521,19 @@ a {
     box-shadow: var(--gold-glow-strong);
 }
 
-.hero-actions .primary-button:hover span {
-    transform: translate(3px, -3px);
-}
 
+/* OUTLINE BUTTON */
 
-/* =====================================================
-   SECONDARY — VIEW OUR PROJECTS
-===================================================== */
+.secondary-button {
+    border: 1px solid rgba(244,241,232,.45);
 
-.hero-actions .secondary-button {
-    border: 1px solid rgba(244, 241, 232, .42);
-
-    background: rgba(8, 9, 9, .18);
+    background: rgba(8,9,9,.18);
 
     color: #f4f1e8;
-
-    backdrop-filter: blur(4px);
 }
 
-.hero-actions .secondary-button:hover,
-.hero-actions .secondary-button:active {
+.secondary-button:hover,
+.secondary-button:active {
     border-color: var(--gold-light);
 
     color: var(--gold-light);
@@ -636,108 +545,7 @@ a {
 
 
 /* =====================================================
-   HERO CREDIBILITY STRIP
-===================================================== */
-
-.hero-credibility {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    z-index: 3;
-
-    min-height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0 25px;
-
-    border-top: 1px solid rgba(212, 175, 55, .20);
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(8, 9, 9, .78),
-            rgba(8, 9, 9, .48),
-            rgba(8, 9, 9, .78)
-        );
-
-    backdrop-filter: blur(8px);
-
-    color: #d0cdc5;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    letter-spacing: .20em;
-
-    text-align: center;
-}
-
-
-/* =====================================================
-   HERO ANIMATIONS
-===================================================== */
-
-@keyframes heroVideoDrift {
-
-    from {
-        transform: scale(1.025);
-    }
-
-    to {
-        transform: scale(1.055);
-    }
-
-}
-
-
-@keyframes heroContentReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .hero {
-        height: 620px;
-    }
-
-    .hero-content {
-        padding: 55px;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(48px, 8vw, 70px);
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE
+   HERO MOBILE
 ===================================================== */
 
 @media (max-width: 768px) {
@@ -745,176 +553,62 @@ a {
     .hero {
         width: calc(100% - 24px);
 
-        height: 600px;
+        height: 560px;
+
+        min-height: 0;
 
         margin: 88px auto 0;
 
         border-radius: 22px;
 
         box-shadow:
-            0 0 0 1px rgba(212, 175, 55, .14),
-            0 0 15px rgba(212, 175, 55, .28),
-            0 0 32px rgba(212, 175, 55, .14),
-            0 18px 42px rgba(0, 0, 0, .58);
+            0 0 0 1px rgba(212,175,55,.14),
+            0 0 15px rgba(212,175,55,.28),
+            0 0 32px rgba(212,175,55,.14),
+            0 18px 42px rgba(0,0,0,.58);
     }
-
-
-    .hero-video {
-        transform: scale(1.04);
-
-        animation-duration: 18s;
-    }
-
-
-    .hero-overlay {
-        background:
-            linear-gradient(
-                180deg,
-                rgba(0, 0, 0, .42) 0%,
-                rgba(0, 0, 0, .55) 35%,
-                rgba(0, 0, 0, .82) 100%
-            );
-    }
-
 
     .hero-content {
-        height: 100%;
+        width: 100%;
 
-        justify-content: center;
-
-        padding:
-            42px 27px 92px;
-
-        animation-duration: .8s;
+        padding: 40px 28px;
     }
-
 
     .hero-eyebrow {
-        font-size: 10px;
-
-        letter-spacing: .18em;
+        font-size: 11px;
     }
-
 
     .hero-content h1 {
         max-width: 100%;
 
         margin-top: 12px;
 
-        font-size: 43px;
-
-        line-height: .98;
-
-        letter-spacing: -.045em;
+        font-size: 42px;
+        line-height: 1.02;
     }
-
-
-    .hero-content h1 em {
-        margin-top: 5px;
-    }
-
 
     .hero-content > p {
-        max-width: 100%;
-
-        margin-top: 17px;
+        margin-top: 16px;
 
         font-size: 12px;
-
         line-height: 1.7;
     }
 
-
     .hero-actions {
-        width: 100%;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
 
         margin-top: 23px;
     }
 
+    .primary-button,
+    .secondary-button {
+        min-height: 46px;
 
-    .hero-actions .primary-button,
-    .hero-actions .secondary-button {
-        width: 100%;
+        padding: 0 20px;
 
-        min-height: 47px;
-
-        padding: 0 18px;
-
-        font-size: 10px;
-    }
-
-
-    .hero-credibility {
-        min-height: 52px;
-
-        padding:
-            8px 15px;
-
-        font-size: 7px;
-
-        line-height: 1.6;
-
-        letter-spacing: .13em;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 400px) {
-
-    .hero {
-        height: 585px;
-
-        margin-top: 82px;
-    }
-
-
-    .hero-content {
-        padding:
-            38px 22px 88px;
-    }
-
-
-    .hero-content h1 {
-        font-size: 38px;
-    }
-
-
-    .hero-content > p {
         font-size: 11px;
     }
-
-
-    .hero-credibility {
-        font-size: 6.5px;
-
-        letter-spacing: .10em;
-    }
-
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .hero-video,
-    .hero-content {
-        animation: none;
-    }
-
 }
 
 /* =====================================================
@@ -1019,7 +713,6 @@ a {
     height: 100%;
 
     object-fit: cover;
-    object-position: center;
 }
 
 
@@ -1027,16 +720,19 @@ a {
 
 .profile-one {
     left: 0;
+
     z-index: 3;
 }
 
 .profile-two {
     left: 42px;
+
     z-index: 2;
 }
 
 .profile-three {
     left: 84px;
+
     z-index: 1;
 }
 
@@ -1118,29 +814,25 @@ a {
             rgba(201,164,92,.025)
         );
 
-    mask-image:
-        linear-gradient(
-            to right,
-            transparent,
-            black 8%,
-            black 92%,
-            transparent
-        );
-
-    -webkit-mask-image:
-        linear-gradient(
-            to right,
-            transparent,
-            black 8%,
-            black 92%,
-            transparent
-        );
+    /* Soft fade at both edges */
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 8%,
+        black 92%,
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 8%,
+        black 92%,
+        transparent
+    );
 }
 
 
-/* =====================================================
-   MOVING TRACK
-===================================================== */
+/* MOVING TRACK */
 
 .subsidiary-track {
     width: max-content;
@@ -1150,37 +842,34 @@ a {
 
     gap: 18px;
 
-    animation:
-        subsidiariesMove 22s linear infinite;
-
-    will-change: transform;
+    animation: subsidiariesMove 22s linear infinite;
 }
 
 
-/* =====================================================
-   INDIVIDUAL LOGO CARD
-===================================================== */
+/* INDIVIDUAL LOGO CARD */
 
 .subsidiary-card {
-    width: 280px;
-    height: 150px;
+    width: 250px;
+    height: 105px;
 
-    flex: 0 0 280px;
     flex-shrink: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 12px;
-
-    overflow: hidden;
+    padding: 18px 25px;
 
     border: 1px solid rgba(201,164,92,.30);
 
     border-radius: 8px 28px 8px 28px;
 
-    background: #080909;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(201,164,92,.015)
+        );
 
     box-shadow:
         0 0 8px rgba(201,164,92,.10),
@@ -1193,26 +882,16 @@ a {
 }
 
 
-/* =====================================================
-   LOGO FIT
-===================================================== */
+/* LOGOS */
 
 .subsidiary-card img {
-    display: block;
-
     width: 100%;
     height: 100%;
 
-    max-width: 100%;
-    max-height: 100%;
-
     object-fit: contain;
-    object-position: center;
 
     filter:
-        drop-shadow(
-            0 0 5px rgba(201,164,92,.18)
-        );
+        drop-shadow(0 0 5px rgba(201,164,92,.18));
 
     transition:
         transform .35s ease,
@@ -1220,37 +899,7 @@ a {
 }
 
 
-/* =====================================================
-   INDIVIDUAL LOGO BACKGROUNDS
-===================================================== */
-
-/* METROSPACE */
-
-.subsidiary-card:nth-child(1),
-.subsidiary-card:nth-child(4) {
-    background: #050505;
-}
-
-
-/* OASIS */
-
-.subsidiary-card:nth-child(2),
-.subsidiary-card:nth-child(5) {
-    background: #050505;
-}
-
-
-/* CCL */
-
-.subsidiary-card:nth-child(3),
-.subsidiary-card:nth-child(6) {
-    background: #07165c;
-}
-
-
-/* =====================================================
-   TAP / HOVER
-===================================================== */
+/* TAP / HOVER */
 
 .subsidiary-card:hover,
 .subsidiary-card:active {
@@ -1266,12 +915,10 @@ a {
 
 .subsidiary-card:hover img,
 .subsidiary-card:active img {
-    transform: scale(1.035);
+    transform: scale(1.04);
 
     filter:
-        drop-shadow(
-            0 0 8px rgba(239,210,138,.45)
-        );
+        drop-shadow(0 0 8px rgba(239,210,138,.45));
 }
 
 
@@ -1282,11 +929,11 @@ a {
 @keyframes subsidiariesMove {
 
     from {
-        transform: translate3d(0, 0, 0);
+        transform: translateX(0);
     }
 
     to {
-        transform: translate3d(-50%, 0, 0);
+        transform: translateX(-50%);
     }
 
 }
@@ -1302,15 +949,9 @@ a {
         padding: 65px 0 55px;
     }
 
-
-    /* INTRO */
-
     .subsidiaries-intro {
         gap: 18px;
     }
-
-
-    /* PROFILE STACK */
 
     .profile-stack {
         width: 120px;
@@ -1322,10 +963,6 @@ a {
         height: 58px;
     }
 
-    .profile-one {
-        left: 0;
-    }
-
     .profile-two {
         left: 32px;
     }
@@ -1333,9 +970,6 @@ a {
     .profile-three {
         left: 64px;
     }
-
-
-    /* INTRO TEXT */
 
     .subsidiaries-copy strong {
         font-size: 25px;
@@ -1345,15 +979,11 @@ a {
         font-size: 21px;
     }
 
-
-    /* SLIDER */
-
     .subsidiary-slider {
         margin-top: 42px;
 
         padding: 13px 0;
     }
-
 
     .subsidiary-track {
         gap: 12px;
@@ -1361,46 +991,13 @@ a {
         animation-duration: 18s;
     }
 
-
-    /* MOBILE CARDS */
-
     .subsidiary-card {
-        width: 230px;
-        height: 125px;
+        width: 205px;
+        height: 82px;
 
-        flex: 0 0 230px;
-
-        padding: 10px;
+        padding: 14px 20px;
 
         border-radius: 7px 22px 7px 22px;
-    }
-
-
-    .subsidiary-card img {
-        width: 100%;
-        height: 100%;
-
-        object-fit: contain;
-        object-position: center;
-    }
-
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .subsidiary-track {
-        animation: none;
-    }
-
-    .subsidiary-card,
-    .subsidiary-card img,
-    .profile {
-        transition: none;
     }
 
 }
@@ -3415,146 +3012,6 @@ a {
     }
 
 }
-
-/* =====================================================
-   BOARD ITEM
-   CARD + PORTFOLIO BUTTON MOVE TOGETHER
-===================================================== */
-
-.board-item {
-    flex-shrink: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    width: 220px;
-
-    gap: 12px;
-}
-
-
-/* =====================================================
-   PORTFOLIO BUTTON
-   SITS UNDER THE CARD — NOT INSIDE IT
-===================================================== */
-
-.board-portfolio-button {
-    width: 100%;
-
-    min-height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-
-    padding: 0 16px;
-
-    border: 1px solid rgba(201, 164, 92, .45);
-    border-radius: 6px 18px 6px 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(201, 164, 92, .08),
-            rgba(201, 164, 92, .025)
-        );
-
-    color: var(--gold-light);
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: .12em;
-    text-transform: uppercase;
-
-    text-decoration: none;
-
-    box-shadow:
-        0 0 8px rgba(201, 164, 92, .08),
-        inset 0 0 14px rgba(201, 164, 92, .025);
-
-    transition:
-        transform .3s ease,
-        border-color .3s ease,
-        background .3s ease,
-        box-shadow .3s ease,
-        color .3s ease;
-}
-
-
-/* ARROW */
-
-.board-portfolio-button span {
-    font-size: 15px;
-    line-height: 1;
-
-    transition:
-        transform .3s ease;
-}
-
-
-/* =====================================================
-   HOVER / TAP
-===================================================== */
-
-.board-portfolio-button:hover,
-.board-portfolio-button:active {
-    transform: translateY(-3px);
-
-    border-color: var(--gold-light);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(201, 164, 92, .18),
-            rgba(201, 164, 92, .055)
-        );
-
-    color: #f4f1e8;
-
-    box-shadow:
-        0 0 8px rgba(239, 210, 138, .35),
-        0 0 22px rgba(201, 164, 92, .18),
-        0 10px 25px rgba(0, 0, 0, .3);
-}
-
-
-.board-portfolio-button:hover span,
-.board-portfolio-button:active span {
-    transform: translate(3px, -3px);
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .board-item {
-        width: 205px;
-
-        gap: 10px;
-    }
-
-    .board-portfolio-button {
-        min-height: 40px;
-
-        padding: 0 13px;
-
-        font-size: 9px;
-
-        letter-spacing: .1em;
-    }
-
-    .board-portfolio-button span {
-        font-size: 14px;
-    }
-
-}
-
 
 .contact-action-button {
     display: inline-flex;
@@ -12841,18 +12298,19 @@ color: #d8c28a;
 }
 
 /* =====================================================
-   PARTNERS / OUR CLIENTS
+   Partners
 ===================================================== */
 
 .subsidiaries-section {
     position: relative;
-    padding: 110px 0 90px;
+    padding: 110px 0;
+
     overflow: hidden;
 
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(201,164,92,.08),
+            rgba(201, 164, 92, .08),
             transparent 45%
         ),
         #05090f;
@@ -12869,8 +12327,6 @@ color: #d8c28a;
 }
 
 .subsidiaries-heading .section-label {
-    display: block;
-
     color: var(--gold);
     text-shadow: var(--gold-glow);
 }
@@ -12881,17 +12337,18 @@ color: #d8c28a;
     color: #f5f1e8;
 
     font-size: clamp(38px, 5vw, 62px);
+
     line-height: 1;
+
     letter-spacing: -.045em;
 }
 
 .subsidiaries-heading h2 em {
     color: var(--gold-light);
+
     font-style: italic;
 
-    text-shadow:
-        0 0 8px rgba(239,210,138,.45),
-        0 0 22px rgba(201,164,92,.18);
+    text-shadow: var(--gold-glow);
 }
 
 .subsidiaries-heading p {
@@ -12902,6 +12359,7 @@ color: #d8c28a;
     color: #9da7b3;
 
     font-size: 13px;
+
     line-height: 1.8;
 }
 
@@ -12914,8 +12372,6 @@ color: #d8c28a;
     width: 100%;
 
     overflow: hidden;
-
-    position: relative;
 }
 
 
@@ -12925,27 +12381,25 @@ color: #d8c28a;
 
 .subsidiaries-track {
     display: flex;
-    align-items: stretch;
 
     width: max-content;
 
-    will-change: transform;
-
     animation:
         subsidiaries-scroll
-        24s
+        22s
         linear
         infinite;
+
+    will-change: transform;
 }
 
 
 /* =====================================================
-   LOGO GROUP
+   EACH LOGO GROUP
 ===================================================== */
 
 .subsidiaries-group {
     display: flex;
-    align-items: center;
 
     gap: 22px;
 
@@ -12956,55 +12410,55 @@ color: #d8c28a;
 
 
 /* =====================================================
-   PARTNER CARD
+   LOGO CARD
 ===================================================== */
 
 .subsidiary-card {
-    position: relative;
+    width: 240px;
+    height: 125px;
 
-    width: 270px;
-    height: 150px;
-
-    flex: 0 0 270px;
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    overflow: hidden;
+    padding: 18px 25px;
 
-    padding: 10px;
+    border: 1px solid rgba(201, 164, 92, .24);
 
-    border: 1px solid rgba(201,164,92,.28);
-
-    border-radius: 8px 30px 8px 30px;
+    border-radius: 8px 28px 8px 28px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(24,28,34,.98),
-            rgba(8,12,17,1)
+            rgba(24, 28, 34, .95),
+            rgba(8, 12, 17, .98)
         );
 
     box-shadow:
-        0 18px 45px rgba(0,0,0,.38),
-        0 0 20px rgba(201,164,92,.05),
-        inset 0 0 20px rgba(201,164,92,.025);
+        0 18px 45px rgba(0, 0, 0, .35),
+        0 0 20px rgba(201, 164, 92, .04);
 
     transition:
         border-color .35s ease,
         transform .35s ease,
-        box-shadow .35s ease,
-        background .35s ease;
+        box-shadow .35s ease;
+}
+
+.subsidiary-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(201, 164, 92, .65);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, .45),
+        var(--gold-glow);
 }
 
 
 /* =====================================================
-   LOGO IMAGE
-
-   Keep the COMPLETE logo visible.
-   No stretching.
-   No cropping.
+   LOGO
 ===================================================== */
 
 .subsidiary-card img {
@@ -13013,100 +12467,12 @@ color: #d8c28a;
     width: 100%;
     height: 100%;
 
-    max-width: 100%;
-    max-height: 100%;
-
     object-fit: contain;
+
     object-position: center;
 
-    border-radius: 5px;
-
-    transition:
-        transform .35s ease,
-        filter .35s ease;
-}
-
-
-/* =====================================================
-   INDIVIDUAL LOGO BACKGROUNDS
-
-   These make logos with solid rectangular backgrounds
-   blend into their cards instead of looking like a
-   separate white box.
-
-   Adjust these colours if the actual logo backgrounds
-   are slightly different.
-===================================================== */
-
-/* PARTNER 1 — dark logo */
-.subsidiary-card:nth-child(1) {
-    background: #08090a;
-}
-
-
-/* PARTNER 2 — white logo background */
-.subsidiary-card:nth-child(2) {
-    background: #ffffff;
-}
-
-
-/* PARTNER 3 — white logo background */
-.subsidiary-card:nth-child(3) {
-    background: #ffffff;
-}
-
-
-/* PARTNER 4 — dark logo background */
-.subsidiary-card:nth-child(4) {
-    background: #08090a;
-}
-
-
-/* PARTNER 5 — dark logo background */
-.subsidiary-card:nth-child(5) {
-    background: #08090a;
-}
-
-
-/* =====================================================
-   MAKE IMAGE FILL MORE OF THE CARD
-
-   The image itself stays proportional. This prevents
-   distortion while allowing logos to use the available
-   card space properly.
-===================================================== */
-
-.subsidiary-card img {
-    object-fit: contain;
-}
-
-
-/* =====================================================
-   HOVER / TAP
-===================================================== */
-
-.subsidiary-card:hover,
-.subsidiary-card:active {
-    transform: translateY(-5px);
-
-    border-color: var(--gold-light);
-
-    box-shadow:
-        0 20px 55px rgba(0,0,0,.48),
-        0 0 10px rgba(239,210,138,.48),
-        0 0 28px rgba(201,164,92,.24),
-        0 0 48px rgba(201,164,92,.10);
-}
-
-.subsidiary-card:hover img,
-.subsidiary-card:active img {
-    transform: scale(1.025);
-
-    filter:
-        drop-shadow(
-            0 0 7px
-            rgba(201,164,92,.18)
-        );
+    max-width: 100%;
+    max-height: 100%;
 }
 
 
@@ -13128,28 +12494,24 @@ color: #d8c28a;
 
 
 /* =====================================================
-   TABLET
+   MOBILE
 ===================================================== */
 
 @media (max-width: 800px) {
 
     .subsidiaries-section {
-        padding: 85px 0 75px;
+        padding: 85px 0;
     }
 
     .subsidiaries-heading {
-        margin-bottom: 42px;
+        margin-bottom: 40px;
     }
 
     .subsidiary-card {
-        width: 225px;
-        height: 125px;
+        width: 205px;
+        height: 110px;
 
-        flex-basis: 225px;
-
-        padding: 9px;
-
-        border-radius: 8px 26px 8px 26px;
+        padding: 16px 22px;
     }
 
     .subsidiaries-group {
@@ -13158,71 +12520,32 @@ color: #d8c28a;
     }
 
     .subsidiaries-track {
-        animation-duration: 21s;
+        animation-duration: 19s;
     }
 
 }
 
 
 /* =====================================================
-   MOBILE
+   SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
 
-    .subsidiaries-section {
-        padding: 75px 0 65px;
-    }
-
-    .subsidiaries-heading {
-        margin-bottom: 38px;
-    }
-
-    .subsidiaries-heading h2 {
-        font-size: 38px;
-    }
-
-    .subsidiaries-heading p {
-        font-size: 12px;
-        line-height: 1.75;
-    }
-
     .subsidiary-card {
-        width: 205px;
-        height: 115px;
+        width: 180px;
+        height: 100px;
 
-        flex-basis: 205px;
-
-        padding: 8px;
-
-        border-radius: 7px 24px 7px 24px;
+        padding: 14px 18px;
     }
 
     .subsidiaries-group {
-        gap: 13px;
-        padding-right: 13px;
+        gap: 14px;
+        padding-right: 14px;
     }
 
     .subsidiaries-track {
-        animation-duration: 18s;
-    }
-
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .subsidiaries-track {
-        animation: none;
-    }
-
-    .subsidiary-card,
-    .subsidiary-card img {
-        transition: none;
+        animation-duration: 17s;
     }
 
 }
