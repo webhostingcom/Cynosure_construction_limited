@@ -14420,3 +14420,78 @@ color: #d8c28a;
     }
 
 }
+
+   /* =====================================================
+   FLOATING WHATSAPP BUTTON
+===================================================== */
+
+.floating-whatsapp {
+    position: fixed;
+
+    left: 22px;
+    bottom: 25px;
+
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    border-radius: 50%;
+
+    background: #25D366;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, .35);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* HOVER */
+
+.floating-whatsapp:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 10px 30px rgba(37, 211, 102, .35);
+}
+
+
+/* CLICK */
+
+.floating-whatsapp:active {
+    transform: scale(.96);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .floating-whatsapp {
+
+        left: 16px;
+        bottom: 18px;
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 25px;
+    }
+
+}
