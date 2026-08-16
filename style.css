@@ -14223,3 +14223,97 @@ color: #d8c28a;
     }
 
 }
+
+   /* =====================================================
+   SOCIAL MEDIA BUTTONS
+===================================================== */
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 28px;
+}
+
+
+/* =====================================================
+   SOCIAL BUTTON
+===================================================== */
+
+.social-button {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(245, 241, 232, .22);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #f5f1e8;
+
+    text-decoration: none;
+
+    font-size: 29px;
+
+    transition:
+        color .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.social-button i {
+    display: block;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.social-button:hover {
+    color: var(--gold-light);
+
+    border-color: rgba(201, 164, 92, .65);
+
+    background: rgba(201, 164, 92, .06);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 22px rgba(201, 164, 92, .12);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .social-links {
+        gap: 13px;
+    }
+
+    .social-button {
+        width: 58px;
+        height: 58px;
+
+        font-size: 23px;
+    }
+
+}
