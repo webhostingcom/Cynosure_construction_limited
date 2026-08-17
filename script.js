@@ -905,7 +905,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const response =
                         await fetch(
-                            "https://formspree.io/f/xjybwrde",
+                            "https://formspree.io/f/mvkpwwwo",
                             {
                                 method: "POST",
 
